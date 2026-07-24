@@ -26,3 +26,4 @@ permalink: /about/
     </li>
   </ul>
 </details>
+<p><b>XMPP</b>: <a href="xmpp:laserattack@0nl1ne.at">laserattack@0nl1ne.at</a></p>
