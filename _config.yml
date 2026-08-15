@@ -1,7 +1,8 @@
 title: laserattack
 author: serr
 email: sc7227484@gmail.com
-url: https://laserattack.me
+url: https://laserattack.github.io
+description: "Blog of serr aka laserattack"
 
 baseurl: ""
 permalink: /:year/:month/:day/:title/index.html
