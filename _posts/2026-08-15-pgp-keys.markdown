@@ -1,0 +1,498 @@
+---
+layout: default
+title: Работа с PGP ключами
+---
+
+- NAME: Работа с PGP ключами
+- TAGS: pgp, cipher, privacy, guide
+
+# Создание мастерключей
+
+Мастерключи должны храниться только в зашифрованной ФС, я буду
+использовать `gocryptfs` - оверлейную зашифрованную файловую систему
+
+```
+mkdir ~/mnt/gocryptfs/pgp-keys
+```
+
+далее запускаю процесс создания ключа
+
+```
+~/mnt/gocryptfs
+[serr@lap]-> gpg --homedir ~/mnt/gocryptfs/pgp-keys --full-generate-key
+gpg: WARNING: unsafe permissions on homedir '/home/serr/mnt/gocryptfs/pgp-keys'
+gpg (GnuPG) 2.4.9; Copyright (C) 2025 g10 Code GmbH
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+gpg: keybox '/home/serr/mnt/gocryptfs/pgp-keys/pubring.kbx' created
+Please select what kind of key you want:
+   (1) RSA and RSA
+   (2) DSA and Elgamal
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+   (9) ECC (sign and encrypt) *default*
+  (10) ECC (sign only)
+  (14) Existing key from card
+Your selection? 10
+Please select which elliptic curve you want:
+   (1) Curve 25519 *default*
+   (4) NIST P-384
+   (6) Brainpool P-256
+Your selection?
+Please specify how long the key should be valid.
+         0 = key does not expire
+      <n>  = key expires in n days
+      <n>w = key expires in n weeks
+      <n>m = key expires in n months
+      <n>y = key expires in n years
+Key is valid for? (0)
+Key does not expire at all
+Is this correct? (y/N) y
+
+GnuPG needs to construct a user ID to identify your key.
+
+Real name: Primary Key
+Email address:
+Comment: Clean
+You selected this USER-ID:
+    "Primary Key (Clean)"
+
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+gpg: /home/serr/mnt/gocryptfs/pgp-keys/trustdb.gpg: trustdb created
+gpg: directory '/home/serr/mnt/gocryptfs/pgp-keys/openpgp-revocs.d' created
+gpg: revocation certificate stored as '/home/serr/mnt/gocryptfs/pgp-keys/openpgp-revocs.d/0C73E648FEEA465E8F6493AF38A22EA086864C8F.rev'
+public and secret key created and signed.
+
+pub   ed25519 2026-08-15 [SC]
+      0C73E648FEEA465E8F6493AF38A22EA086864C8F
+uid                      Primary Key (Clean)
+```
+
+**важно что я выбирал**
+
+```
+  (10) ECC (sign only)
+```
+
+т.е. мастерключ будет использоваться только для подписи субключей
+
+# Выпуск субключей
+
+Создаю субключ для шифрования
+
+```
+~/mnt/gocryptfs
+[serr@lap]-> gpg --homedir ~/mnt/gocryptfs/pgp-keys --edit-key "Primary Key (Clean)"
+gpg: WARNING: unsafe permissions on homedir '/home/serr/mnt/gocryptfs/pgp-keys'
+gpg (GnuPG) 2.4.9; Copyright (C) 2025 g10 Code GmbH
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Secret key is available.
+
+gpg: checking the trustdb
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   2  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 2u
+sec  ed25519/38A22EA086864C8F
+     created: 2026-08-15  expires: never       usage: SC
+     trust: ultimate      validity: ultimate
+[ultimate] (1). Primary Key (Clean)
+
+gpg> addkey
+Please select what kind of key you want:
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+   (5) Elgamal (encrypt only)
+   (6) RSA (encrypt only)
+  (10) ECC (sign only)
+  (12) ECC (encrypt only)
+  (14) Existing key from card
+Your selection? 12
+Please select which elliptic curve you want:
+   (1) Curve 25519 *default*
+   (4) NIST P-384
+   (6) Brainpool P-256
+Your selection?
+Please specify how long the key should be valid.
+         0 = key does not expire
+      <n>  = key expires in n days
+      <n>w = key expires in n weeks
+      <n>m = key expires in n months
+      <n>y = key expires in n years
+Key is valid for? (0) 1y
+Key expires at Sun 15 Aug 2027 02:12:50 PM MSK
+Is this correct? (y/N) y
+Really create? (y/N) y
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+
+sec  ed25519/38A22EA086864C8F
+     created: 2026-08-15  expires: never       usage: SC
+     trust: ultimate      validity: ultimate
+ssb  cv25519/5DBD0FD73ACA057F
+     created: 2026-08-15  expires: 2027-08-15  usage: E
+[ultimate] (1). Primary Key (Clean)
+
+gpg> save
+```
+
+тут важно что я выбрал
+
+```
+  (12) ECC (encrypt only)
+```
+
+создания пассфразы тут не было, зашифровано по умолчанию той же
+пассфразой что и мастерключ
+
+в связке так
+
+```
+~/mnt/gocryptfs
+[serr@lap]-> gpg --homedir ~/mnt/gocryptfs/pgp-keys --list-secret-keys --with-subkey-fingerprint "Primary Key (Clean)"
+gpg: WARNING: unsafe permissions on homedir '/home/serr/mnt/gocryptfs/pgp-keys'
+sec   ed25519 2026-08-15 [SC]
+      0C73E648FEEA465E8F6493AF38A22EA086864C8F
+uid           [ultimate] Primary Key (Clean)
+ssb   cv25519 2026-08-15 [E] [expires: 2027-08-15]
+      9A819283B120FA7E83523B2E5DBD0FD73ACA057F
+```
+
+еще выпущу `sign` ключ для использования в `ssh`
+
+```
+~/mnt/gocryptfs
+[serr@lap]-> gpg --homedir ~/mnt/gocryptfs/pgp-keys --edit-key "Primary Key (Clean)"
+gpg: WARNING: unsafe permissions on homedir '/home/serr/mnt/gocryptfs/pgp-keys'
+gpg (GnuPG) 2.4.9; Copyright (C) 2025 g10 Code GmbH
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Secret key is available.
+
+sec  ed25519/38A22EA086864C8F
+     created: 2026-08-15  expires: never       usage: SC
+     trust: ultimate      validity: ultimate
+ssb  cv25519/5DBD0FD73ACA057F
+     created: 2026-08-15  expires: 2027-08-15  usage: E
+[ultimate] (1). Primary Key (Clean)
+
+gpg> addkey
+Please select what kind of key you want:
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+   (5) Elgamal (encrypt only)
+   (6) RSA (encrypt only)
+  (10) ECC (sign only)
+  (12) ECC (encrypt only)
+  (14) Existing key from card
+Your selection? 10
+Please select which elliptic curve you want:
+   (1) Curve 25519 *default*
+   (4) NIST P-384
+   (6) Brainpool P-256
+Your selection?
+Please specify how long the key should be valid.
+         0 = key does not expire
+      <n>  = key expires in n days
+      <n>w = key expires in n weeks
+      <n>m = key expires in n months
+      <n>y = key expires in n years
+Key is valid for? (0) 1y
+Key expires at Sun 15 Aug 2027 02:24:57 PM MSK
+Is this correct? (y/N) y
+Really create? (y/N) y
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+
+sec  ed25519/38A22EA086864C8F
+     created: 2026-08-15  expires: never       usage: SC
+     trust: ultimate      validity: ultimate
+ssb  cv25519/5DBD0FD73ACA057F
+     created: 2026-08-15  expires: 2027-08-15  usage: E
+ssb  ed25519/7CB4AF1623EBFD0D
+     created: 2026-08-15  expires: 2027-08-15  usage: S
+[ultimate] (1). Primary Key (Clean)
+
+gpg> save
+```
+
+но сейчас экспорт в `ssh` не работает
+
+```
+~/mnt/gocryptfs
+[serr@lap]-> gpg --homedir ~/mnt/gocryptfs/pgp-keys --export-ssh-key 7CB4AF1623EBFD0D
+gpg: WARNING: unsafe permissions on homedir '/home/serr/mnt/gocryptfs/pgp-keys'
+gpg: key "7CB4AF1623EBFD0D" not found: Unusable public key
+gpg: export as ssh key failed: Unusable public key
+```
+
+надо сменить тип использования с `sign` на `authenticate`
+
+```
+~/mnt/gocryptfs
+[serr@lap]-> gpg --homedir ~/mnt/gocryptfs/pgp-keys --edit-key "Primary Key (Clean)"
+gpg: WARNING: unsafe permissions on homedir '/home/serr/mnt/gocryptfs/pgp-keys'
+gpg (GnuPG) 2.4.9; Copyright (C) 2025 g10 Code GmbH
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Secret key is available.
+
+sec  ed25519/38A22EA086864C8F
+     created: 2026-08-15  expires: never       usage: SC
+     trust: ultimate      validity: ultimate
+ssb  cv25519/5DBD0FD73ACA057F
+     created: 2026-08-15  expires: 2027-08-15  usage: E
+ssb  ed25519/7CB4AF1623EBFD0D
+     created: 2026-08-15  expires: 2027-08-15  usage: S
+[ultimate] (1). Primary Key (Clean)
+
+gpg> key 2
+
+sec  ed25519/38A22EA086864C8F
+     created: 2026-08-15  expires: never       usage: SC
+     trust: ultimate      validity: ultimate
+ssb  cv25519/5DBD0FD73ACA057F
+     created: 2026-08-15  expires: 2027-08-15  usage: E
+ssb* ed25519/7CB4AF1623EBFD0D
+     created: 2026-08-15  expires: 2027-08-15  usage: S
+[ultimate] (1). Primary Key (Clean)
+
+gpg> change-usage
+Changing usage of a subkey.
+
+Possible actions for this ECC key: Sign Authenticate
+Current allowed actions: Sign
+
+   (S) Toggle the sign capability
+   (A) Toggle the authenticate capability
+   (Q) Finished
+
+Your selection? A
+
+Possible actions for this ECC key: Sign Authenticate
+Current allowed actions: Sign Authenticate
+
+   (S) Toggle the sign capability
+   (A) Toggle the authenticate capability
+   (Q) Finished
+
+Your selection? S
+
+Possible actions for this ECC key: Sign Authenticate
+Current allowed actions: Authenticate
+
+   (S) Toggle the sign capability
+   (A) Toggle the authenticate capability
+   (Q) Finished
+
+Your selection? Q
+
+sec  ed25519/38A22EA086864C8F
+     created: 2026-08-15  expires: never       usage: SC
+     trust: ultimate      validity: ultimate
+ssb  cv25519/5DBD0FD73ACA057F
+     created: 2026-08-15  expires: 2027-08-15  usage: E
+ssb* ed25519/7CB4AF1623EBFD0D
+     created: 2026-08-15  expires: 2027-08-15  usage: A
+[ultimate] (1). Primary Key (Clean)
+
+gpg> save
+```
+
+вот теперь экспорт в `ssh`
+
+```
+~/mnt/gocryptfs
+[serr@lap]-> gpg --homedir ~/mnt/gocryptfs/pgp-keys --export-ssh-key 7CB4AF1623EBFD0D
+gpg: WARNING: unsafe permissions on homedir '/home/serr/mnt/gocryptfs/pgp-keys'
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILDuVae20rXvJDEHZUqKjUYJ7837SFL2HG5O2xNa4XUE openpgp:0x23EBFD0D
+```
+
+вообще типы использования такие
+
+- **Certify (C)** - Подписывать другие ключи (сертификация)
+- **Sign (S)** - Подписывать файлы, сообщения, git-коммиты
+- **Encrypt (E)** - Шифровать файлы, сообщения
+- **Authenticate (A)** - Аутентификация
+
+# Экспорт субключей в основную систему
+
+мастерключ не экспортируется, он живет только в зашифрованной фс, это ключевое требование
+
+```
+~/mnt/gocryptfs
+[serr@lap]-> gpg --homedir ~/mnt/gocryptfs/pgp-keys --export-secret-subkeys "Primary Key (Clean)" | gpg --import --pinentry-mode loopback
+gpg: WARNING: unsafe permissions on homedir '/home/serr/mnt/gocryptfs/pgp-keys'
+gpg: key 38A22EA086864C8F: public key "Primary Key (Clean)" imported
+gpg: To migrate 'secring.gpg', with each smartcard, run: gpg --card-status
+gpg: key 38A22EA086864C8F: secret key imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+gpg:       secret keys read: 1
+gpg:  secret keys unchanged: 1
+```
+
+проверка
+
+```
+~/mnt/gocryptfs
+[serr@lap]-> gpg --list-secret-keys --keyid-format LONG
+gpg: checking the trustdb
+gpg: no ultimately trusted keys found
+/home/serr/.gnupg/pubring.kbx
+-----------------------------
+sec#  ed25519/38A22EA086864C8F 2026-08-15 [SC]
+      0C73E648FEEA465E8F6493AF38A22EA086864C8F
+uid                 [ unknown] Primary Key (Clean)
+ssb   cv25519/5DBD0FD73ACA057F 2026-08-15 [E] [expires: 2027-08-15]
+ssb   ed25519/7CB4AF1623EBFD0D 2026-08-15 [A] [expires: 2027-08-15]
+```
+
+`sec#` - тут `#` означает что нет приватного ключа
+
+проверить можно так
+
+```
+~/mnt/gocryptfs
+[serr@lap]-> echo "test" | gpg --sign --local-user 38A22EA086864C8F
+gpg: signing failed: No secret key
+```
+
+# Сохранение приватных мастерключей в keepass
+
+**Публичный ключ математически выводим из приватного**
+
+```
+gpg --homedir ~/mnt/gocryptfs/pgp-keys --export-secret-keys "Primary Key (Clean)" > /tmp/primary-clean-secret.asc
+```
+
+и в keepassxc например аттачментсы добавляются в заметке во вкладке
+`Advanced`
+
+оттуда же их можно сохранить в систему
+
+импорт из `.asc` так
+
+```
+~
+[serr@lap]-> mkdir -p /tmp/test-gpg && chmod 700 /tmp/test-gpg
+~
+[serr@lap]-> gpg --homedir /tmp/test-gpg --import /tmp/primary-clean-secret.asc
+gpg: keybox '/tmp/test-gpg/pubring.kbx' created
+gpg: /tmp/test-gpg/trustdb.gpg: trustdb created
+gpg: key 38A22EA086864C8F: public key "Primary Key (Clean)" imported
+gpg: key 38A22EA086864C8F: secret key imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+gpg:       secret keys read: 1
+gpg:   secret keys imported: 1
+~
+[serr@lap]-> gpg --homedir /tmp/test-gpg --list-secret-keys --keyid-format LONG
+/tmp/test-gpg/pubring.kbx
+-------------------------
+sec   ed25519/38A22EA086864C8F 2026-08-15 [SC]
+      0C73E648FEEA465E8F6493AF38A22EA086864C8F
+uid                 [ unknown] Primary Key (Clean)
+ssb   cv25519/5DBD0FD73ACA057F 2026-08-15 [E] [expires: 2027-08-15]
+ssb   ed25519/7CB4AF1623EBFD0D 2026-08-15 [A] [expires: 2027-08-15]
+ssb   ed25519/1CC271B607E17A73 2026-08-15 [S] [expires: 2027-08-15]
+```
+
+тут импортировался полностью мастерключ ну и субключи все
+
+# Экспорт и импорт публичного ключа
+
+```
+gpg --export --armor "Primary Key (Clean)" > /tmp/primary-clean-public.asc
+```
+
+выглядит как то так
+
+```
+~
+[serr@lap]-> cat /tmp/primary-clean-public.asc
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mDMEaoA+YRYJKwYBBAHaRw8BAQdALcylHsJhiaiG/1Z/6L6kZeABo/rgYX9TVj2i
+VpTReeC0E1ByaW1hcnkgS2V5IChDbGVhbimIkwQTFgoAOxYhBAxz5kj+6kZej2ST
+rziiLqCGhkyPBQJqgD5hAhsDBQsJCAcCAiICBhUKCQgLAgQWAgMBAh4HAheAAAoJ
+EDiiLqCGhkyPpuQA/2EhSFGG7YaLp1LINKNdH+kO0PNlseaQ3bE/8LQz5apJAP9F
+qs5giukGNFW1WsDa2xFwGxV9dlHr3UgFF9B2YiOOBbg4BGqASZ4SCisGAQQBl1UB
+BQEBB0CqHGu4KplCJul4FHH3mrh3nDVrWKXdhYCc3NpeQzL3dAMBCAeIfgQYFgoA
+JhYhBAxz5kj+6kZej2STrziiLqCGhkyPBQJqgEmeAhsMBQkB4TOAAAoJEDiiLqCG
+hkyPGUwA/jRI1/FCbw5ewLNd81KeaVCxOyQjQ2AN2maMOiKPSESmAP495K4crObv
+3NaW48Myq3HHXHgttH2rBTOQmhHvuoROAbgzBGqATHUWCSsGAQQB2kcPAQEHQLDu
+Vae20rXvJDEHZUqKjUYJ7837SFL2HG5O2xNa4XUEiPUEGBYKACYFCQHhM4AWIQQM
+c+ZI/upGXo9kk684oi6ghoZMjwUCaoBNogIbIACBdiAEGRYKAB0WIQRB0v4ZIcMD
+zXRqWx58tK8WI+v9DQUCaoBMdQAKCRB8tK8WI+v9DUJPAP4q0SEChxjHad+se78f
+JUUPAsVXDiJP0oyXMjg2KMswUQEAsrj+cKEf0FZEp7A2c6Y5lRQan3o7BWfe9UbY
+X/QjOQoJEDiiLqCGhkyPA5gBALvzO+U+otN5+MaUaP6uAWmmnvyJgUYJH8pC+4Td
+eoM4AP43ijjzxlViwpBpd7t4NqYr205j3kHH6hvqpFNQk9g9AbgzBGqAUlgWCSsG
+AQQB2kcPAQEHQOxTz0Y5CxSKuxK5Amcv6gCfb6DVbzvQDGG+pczDHqS1iPUEGBYK
+ACYWIQQMc+ZI/upGXo9kk684oi6ghoZMjwUCaoBSWAIbAgUJAeEzgACBCRA4oi6g
+hoZMj3YgBBkWCgAdFiEEowAY9aL3SZ8UdFcuHMJxtgfhenMFAmqAUlgACgkQHMJx
+tgfhenMF/AEA/KJbWBOt/NQXeFXmBnqJ+G0/bAlbSSKjlTCGbmee088BAKN2hdCw
+zSISFJ37A34VNzNeEbHfjXdyitrlHa8BqXEJ6uoA/isP/B1XE4U0U8+1NA4K1V6t
+JLK/Jcgjlp3fy2EnxU19AP9wTn1uwrFackH+ODlKX6JQkMYDfgwakdxmHNfm55RS
+DA==
+=TLTG
+-----END PGP PUBLIC KEY BLOCK-----
+```
+
+импорт так
+
+```
+~
+[serr@lap]-> mkdir -p /tmp/test-contact && chmod 700 /tmp/test-contact
+~
+[serr@lap]-> gpg --homedir /tmp/test-contact --import /tmp/primary-clean-public.asc
+gpg: keybox '/tmp/test-contact/pubring.kbx' created
+gpg: /tmp/test-contact/trustdb.gpg: trustdb created
+gpg: key 38A22EA086864C8F: public key "Primary Key (Clean)" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+~
+[serr@lap]-> gpg --homedir /tmp/test-contact --list-keys --keyid-format LONG
+/tmp/test-contact/pubring.kbx
+-----------------------------
+pub   ed25519/38A22EA086864C8F 2026-08-15 [SC]
+      0C73E648FEEA465E8F6493AF38A22EA086864C8F
+uid                 [ unknown] Primary Key (Clean)
+sub   cv25519/5DBD0FD73ACA057F 2026-08-15 [E] [expires: 2027-08-15]
+sub   ed25519/7CB4AF1623EBFD0D 2026-08-15 [A] [expires: 2027-08-15]
+sub   ed25519/1CC271B607E17A73 2026-08-15 [S] [expires: 2027-08-15]
+```
+
+т.е. тут сразу со всеми субключами идет (только публичные части)
+
+проверка что нет приватных ключей
+
+```
+~
+[serr@lap]-> echo "test" | gpg --homedir /tmp/test-contact --sign --local-user "Primary Key (Clean)"
+gpg: skipped "Primary Key (Clean)": No secret key
+gpg: signing failed: No secret key
+~
+[serr@lap]-> echo "test" | gpg --homedir /tmp/test-contact --sign --local-user 5DBD0FD73ACA057F
+gpg: skipped "5DBD0FD73ACA057F": No secret key
+gpg: signing failed: No secret key
+~
+[serr@lap]-> echo "test" | gpg --homedir /tmp/test-contact --sign --local-user 1CC271B607E17A73
+gpg: skipped "1CC271B607E17A73": No secret key
+gpg: signing failed: No secret key
+~
+[serr@lap]-> echo "test" | gpg --homedir /tmp/test-contact --sign --local-user 7CB4AF1623EBFD0D
+gpg: skipped "7CB4AF1623EBFD0D": No secret key
+gpg: signing failed: No secret key
+```
