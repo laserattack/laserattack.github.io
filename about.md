@@ -7,6 +7,7 @@ permalink: /about/
 <p><b>Nicknames</b>: serr, laserattack</p>
 <p><b>Born</b>: Saint-P City, Russia</p>
 <p><b>XMPP</b>: <a href="xmpp:laserattack@0nl1ne.at">laserattack@0nl1ne.at</a></p>
+<p><b>MAIL</b>: <a href="mailto:laserattack@cock.li">laserattack@cock.li</a></p>
 <p><b>PGP</b>:</p>
 <p><pre>
 -----BEGIN PGP PUBLIC KEY BLOCK-----
