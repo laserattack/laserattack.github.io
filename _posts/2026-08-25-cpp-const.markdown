@@ -1,0 +1,304 @@
+---
+layout: default
+title: Константы в C++
+---
+
+- NAME: Константы в C++
+- TAGS: it, c++, cpp
+
+# Указатели на переменные базовых типов
+
+## Случай 1
+
+- **Переменная**: *неконстантная*
+- **Указатель**: *неконстантный*, указывающий на неконстантную
+  переменную
+
+```
+int a = 10;
+int *p = &a; // OK
+p--; // OK
+p++; // OK
+(*p)++; // OK
+```
+
+## Случай 2
+
+- **Переменная**: *константная*
+- **Указатель**: *неконстантный*, указывающий на неконстантную
+  переменную
+- **Вывод**: если переменная константная то указатель должен быть
+  указывающим на константную переменную
+
+```
+const int a = 10;
+int *p = &a; // error: invalid conversion from 'const int*' to 'int*'
+p--;
+p++;
+(*p)++;
+```
+
+## Случай 3
+
+- **Переменная**: *константная*
+- **Указатель**: *неконстантный*, указывающий на константную переменную
+- **Вывод**: нельзя через неконстантный указатель, указывающий на
+  константную память, изменить память на которую он указывает. Сам
+  указатель при этом менять можно
+
+```
+const int a = 10;
+const int *p = &a; // OK
+p--; // OK
+p++; // OK
+(*p)++; // error: increment of read-only location '* p'
+```
+
+сначала подумал что *read-only location* означает RO-секцию типо
+`.rodata`, куда поместился литерал. но в общем случае это то не
+означает, потому что тут ошибка та же
+
+```
+void f(const int *p) {
+    (*p)++; // error: increment of read-only location '* p'
+}
+```
+
+т.е. read-only тут не факт что уровня ОС, под read-only может иметься
+в виду гарантия компилятора не менять константу
+
+## Случай 4
+
+- **Переменная**: *неконстантная*
+- **Указатель**: *константный*, указывающий на неконстантную
+  переменную
+- **Вывод**: через константный указатель, указывающий на неконстантную
+  память, можно изменить память на которую он указывает. Сам указатель
+  при этом менять нельзя
+
+```
+int a = 10;
+int *const p = &a; // OK
+(*p)++; // OK
+p--; // error: decrement of read-only variable 'p'
+```
+
+## Случай 5
+
+- **Переменная**: *константная*
+- **Указатель**: *константный*, указывающий на константную переменную
+- **Вывод**: если указатель константный и указывает на константную
+  память, то нельзя ни менять через него память на которую он
+  указывает, ни менять сам указатель
+
+```
+const int a = 10;
+const int *const p = &a;
+(*p)++; // error: increment of read-only location '*(const int*)p'
+p--; // error: decrement of read-only variable 'p'
+```
+
+# Пользовательские типы: константные и неконстантные объекты
+
+## Случай 1
+
+- **Вывод**: нельзя создать константный объект, если его тип не имеет
+  конструктора. Неконстантный объект создать при этом можно
+
+```
+struct Data {
+    int data;
+};
+
+int main() {
+    Data a; // OK
+    const Data b; // error: uninitialized 'const b'
+                  // note: 'const struct Data' has no user-provided default constructor
+}
+```
+
+Если определяю конструктор, то все ок
+
+```
+struct Data {
+    int data;
+    Data() : data() {}
+};
+
+int main() {
+    Data a; // OK
+    const Data b; // OK
+}
+```
+
+## Случай 2
+
+- **Вывод**: если объект константный, то даже неконстантные его поля
+  менять нельзя (если не пометить их как `mutable`)
+
+```
+struct Data {
+    int data;
+    Data() : data() {}
+};
+
+int main() {
+    Data a;
+    const Data b;
+    a.data = 1;
+    b.data = 1; // error: assignment of member 'Data::data' in read-only object
+}
+```
+
+если поле помечено как `mutable` то его можно менять даже если объект
+константный
+
+```
+struct Data {
+    mutable int data;
+    Data() : data() {}
+};
+
+int main() {
+    Data a;
+    const Data b;
+    a.data = 1;
+    b.data = 1;
+}
+```
+
+## Случай 3
+
+- **Вывод**: если объект константный, то даже неконстантные его поля
+  менять нельзя (если не пометить их как `mutable`), но если поле -
+  указатель, то можно менять память на которую он указывает, но не сам
+  указатель
+
+```
+struct Data {
+    int *data;
+    Data() : data(new int[3]) {}
+    ~Data() { delete[] data; }
+};
+
+int main() {
+    Data a; // OK
+    const Data b; // OK
+    a.data[1] = 1; // OK
+    b.data[1] = 1; // OK
+}
+```
+
+## Случай 4
+
+**Вывод**: не-const метод нельзя вызвать на const объекте
+
+матчасть: любой метод неявно принимает адрес объекта,
+т.е. `obj.method()` компилятор превращает образно говоря в
+`Class::method(&obj)`
+
+```
+#include <iostream>
+
+struct Data {
+    int *data;
+    int len;
+    Data() {
+        data = new int[3]{1, 2, 3};
+        len = 3;
+    }
+    ~Data() { delete[] data; }
+    void print() {
+        for (int i = 0; i < len; i++) {
+            std::cout << data[i];
+        }
+    }
+};
+
+int main() {
+    const Data a;
+    a.print(); // error: passing 'const Data' as 'this' argument discards qualifiers
+}
+```
+
+Когда вызывается `a.print()` на `const Data a`:
+
+- Неявный аргумент `this` ожидается как `Data *` (не const)
+- Передача `const Data *` в `Data *` — потеря const, про что и
+  написано в ошибке
+
+если определяю метод как константный то все ок
+
+```
+#include <iostream>
+
+struct Data {
+    int *data;
+    int len;
+    Data() {
+        data = new int[3]{1, 2, 3};
+        len = 3;
+    }
+    ~Data() { delete[] data; }
+    void print() const {
+        for (int i = 0; i < len; i++) {
+            std::cout << data[i];
+        }
+    }
+};
+
+int main() {
+    const Data a;
+    a.print(); // OK
+}
+```
+
+если не менять метод то можно еще так
+
+```
+#include <iostream>
+
+struct Data {
+    int *data;
+    int len;
+    Data() {
+        data = new int[3]{1, 2, 3};
+        len = 3;
+    }
+    ~Data() { delete[] data; }
+    void print() {
+        for (int i = 0; i < len; i++) {
+            std::cout << data[i];
+        }
+    }
+};
+
+int main() {
+    const Data a; // OK
+    const_cast<Data&>(a).print(); // OK
+}
+```
+
+## Случай 5
+
+- **Вывод**: существует перегрузка по `const`
+
+```
+struct Data {
+    void print() {
+        std::cout << "non-const\n";
+    }
+
+    void print() const {
+        std::cout << "const\n";
+    }
+};
+
+int main() {
+    Data a;
+    const Data b;
+
+    a.print(); // "non-const"
+    b.print(); // "const"
+}
+```
