@@ -4,10 +4,13 @@ title: About
 permalink: /about/
 ---
 
-<p><b>Nicknames</b>: serr, laserattack</p>
-<p><b>XMPP</b>: <a href="xmpp:laserattack@0nl1ne.at">laserattack@0nl1ne.at</a></p>
-<p><b>PGP</b>:</p>
-<p><pre>
+# About
+
+- **Nicknames**: serr, laserattack
+- **XMPP**: [laserattack@0nl1ne.at](xmpp:laserattack@0nl1ne.at)
+- **PGP**:
+
+```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mDMEaoA+YRYJKwYBBAHaRw8BAQdALcylHsJhiaiG/1Z/6L6kZeABo/rgYX9TVj2i
@@ -33,4 +36,5 @@ zSISFJ37A34VNzNeEbHfjXdyitrlHa8BqXEJ6uoA/isP/B1XE4U0U8+1NA4K1V6t
 JLK/Jcgjlp3fy2EnxU19AP9wTn1uwrFackH+ODlKX6JQkMYDfgwakdxmHNfm55RS
 DA==
 =TLTG
------END PGP PUBLIC KEY BLOCK-----</pre></p>
+-----END PGP PUBLIC KEY BLOCK-----
+```
