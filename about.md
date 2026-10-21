@@ -1,10 +1,9 @@
 ---
 layout: page
-title: About
 permalink: /about/
 ---
 
-# About
+<h1 class="neon-text-red">about</h1>
 
 - **Nicknames**: `serr`, `laserattack`
 - **XMPP**: [laserattack@0nl1ne.at](xmpp:laserattack@0nl1ne.at)
