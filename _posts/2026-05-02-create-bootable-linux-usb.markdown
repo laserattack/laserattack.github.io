@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Создание загрузочной флешки Linux
+category: it
 ---
 
 - NAME: Создание загрузочной флешки Linux

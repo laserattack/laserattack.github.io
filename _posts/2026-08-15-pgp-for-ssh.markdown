@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Использование PGP ключей для доступа по SSH
+category: it
 ---
 
 - NAME: Использование PGP ключей для доступа по SSH

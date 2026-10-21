@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Быстрый git clone только нужных файлов/папок
+category: it
 ---
 
 - NAME: Быстрый git clone только нужных файлов/папок

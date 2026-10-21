@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Проблема с определением заряда батареи на HP Victus 16
+category: it
 ---
 
 - NAME: Проблема с определением заряда батареи на HP Victus 16

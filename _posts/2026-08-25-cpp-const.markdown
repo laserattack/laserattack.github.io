@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Константы в C++
+category: it
 ---
 
 - NAME: Константы в C++

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Как я уменьшил в 2 раза число системных вызовов newfstatat в mado
+category: it
 ---
 
 - NAME: Как я уменьшил в 2 раза число системных вызовов newfstatat в mado

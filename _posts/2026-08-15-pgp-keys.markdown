@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Работа с PGP ключами
+category: it
 ---
 
 - NAME: Работа с PGP ключами

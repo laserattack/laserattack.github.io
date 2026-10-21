@@ -1,6 +1,7 @@
 ---
 layout: default
 title: tcp traceroute с конкретным портом
+category: it
 ---
 
 - NAME: tcp traceroute с конкретным портом
