@@ -6,7 +6,7 @@ permalink: /about/
 
 # About
 
-- **Nicknames**: serr, laserattack
+- **Nicknames**: `serr`, `laserattack`
 - **XMPP**: [laserattack@0nl1ne.at](xmpp:laserattack@0nl1ne.at)
 - **PGP**:
 
