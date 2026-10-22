@@ -1,11 +1,30 @@
 ---
 layout: page
-permalink: /about/
+permalink: /
 ---
 
-<h1 class="neon-text-red">about</h1>
+<h1 class="neon-text-green">about this site</h1>
+
+I often write notes for myself and keep them locally. Some of them,
+which I find particularly useful or worth sharing, end up on this
+site
+
+These notes can be about pretty much anything, but most of them are
+related to _IT_, _programming_, _Linux_, _technology_, and other technical
+topics
+
+- **Repo**: [github.com/laserattack/laserattack.github.io](https://github.com/laserattack/laserattack.github.io)
+- **Last post**: [{{ site.posts.first.title }}]({{ site.posts.first.url | remove: '/index.html' }})
+- **Total posts**: {{ site.posts.size }} (`{{ site.posts.last.date | date: "%Y-%m" }} - {{ site.posts.first.date | date: "%Y-%m" }}`)
+{% for category in site.categories %}
+  - **[{{ category[0] }}](/categories/{{ category[0] }}/)**: {{ category[1].size }}
+{% endfor %}
+
+<h1 class="neon-text-red">about me</h1>
 
 - **Nicknames**: `serr`, `laserattack`
+- **GitHub**: [github.com/laserattack](https://github.com/laserattack)
+- **Mastodon**: [mastodon.ml/@serr](https://mastodon.ml/@serr)
 - **XMPP**: [laserattack@0nl1ne.at](xmpp:laserattack@0nl1ne.at)
 - **PGP**:
 

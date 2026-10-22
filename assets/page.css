@@ -143,27 +143,33 @@ blockquote {
 }
 
 .neon-text-red {
-  color: hsl(0, 100%, 46%);
-  text-shadow:
-    0 0 5px hsl(0, 100%, 46%),
-    0 0 15px hsl(0, 100%, 46%),
-    0 0 30px hsl(0, 100%, 46%);
+  padding: 0px 5px;
+  color: #1c1b22;
+  background-color: hsl(0, 100%, 46%);
+  box-shadow:
+    0 0 7.5px hsl(0, 100%, 46%),
+    0 0 22.5px hsl(0, 100%, 46%),
+    0 0 45px hsl(0, 100%, 46%);
 }
 
 .neon-text-green {
-  color: hsl(120, 100%, 46%);
-  text-shadow:
-    0 0 5px hsl(120, 100%, 46%),
-    0 0 15px hsl(120, 100%, 46%),
-    0 0 30px hsl(120, 100%, 46%);
+  padding: 0px 5px;
+  color: #1c1b22;
+  background-color: hsl(120, 100%, 46%);
+  box-shadow:
+    0 0 7.5px hsl(120, 100%, 46%),
+    0 0 22.5px hsl(120, 100%, 46%),
+    0 0 45px hsl(120, 100%, 46%);
 }
 
 .neon-text-cyan {
-  color: hsl(184, 100%, 46%);
-  text-shadow:
-    0 0 5px hsl(184, 100%, 46%),
-    0 0 15px hsl(184, 100%, 46%),
-    0 0 30px hsl(184, 100%, 46%);
+  padding: 0px 5px;
+  color: #1c1b22;
+  background-color: hsl(184, 100%, 46%);
+  box-shadow:
+    0 0 7.5px hsl(184, 100%, 46%),
+    0 0 22.5px hsl(184, 100%, 46%),
+    0 0 45px hsl(184, 100%, 46%);
 }
 
 /* black color theme for code highlight */
