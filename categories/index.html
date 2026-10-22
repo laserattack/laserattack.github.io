@@ -7,7 +7,7 @@ permalink: /categories/
   <ul class="post-list">
     {% for category in site.categories %}
       <li>
-        <span class="post-meta">category</span>
+        <span class="post-meta">{{ category[1].size }} posts</span>
         <h2>
           <a class="post-link" href="/categories/{{ category[0] }}/">{{ category[0] }}</a>
         </h2>

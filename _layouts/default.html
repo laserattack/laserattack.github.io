@@ -28,12 +28,15 @@
       <h1 class="neon-text-red">{{ page.title }}</h1>
     {% endif %}
     {{ content }}
-    {% for category in page.categories %}
-    <a class="floating-link" href="/categories/{{ category | slugify }}/">
-      Browse category
-    </a>
-    {% break %}
-    {% endfor %}
+    {% if page.categories.size > 0 %}
+    <div class="floating-links">
+      {% for category in page.categories %}
+        <a class="floating-link" href="/categories/{{ category | slugify }}/">
+          {{ category }}
+        </a>
+      {% endfor %}
+    </div>
+    {% endif %}
     <footer>
       {% if page.title %}
         <p>{{ page.title }}</p>

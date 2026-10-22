@@ -170,6 +170,18 @@ blockquote {
     0 0 45px hsl(184, 100%, 46%);
 }
 
+.floating-links {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
 .floating-link,
 .floating-link:visited,
 .floating-link:hover,
@@ -181,11 +193,6 @@ blockquote {
 }
 
 .floating-link {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 100;
-
   padding: 8px 12px;
 
   font-size: 14px;
