@@ -1,0 +1,44 @@
+---
+layout: page
+permalink: /search/
+---
+
+<h1 class="neon-text-cyan">search posts</h1>
+
+<p><i>Case-insensitive substring search across post titles and content</i></p>
+
+Search: <input type="search" id="search">
+<ul id="results"></ul>
+
+<script>
+  const input = document.getElementById('search');
+  const results = document.getElementById('results');
+
+  fetch('/search.json')
+    .then(response => response.json())
+    .then(posts => {
+      input.addEventListener('input', () => {
+        const query = input.value.trim().toLowerCase();
+
+        results.replaceChildren();
+
+        if (!query) return;
+
+        posts
+          .filter(post =>
+            post.title.toLowerCase().includes(query) ||
+            post.content.toLowerCase().includes(query)
+          )
+          .forEach(post => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+
+            a.href = post.url;
+            a.textContent = post.title;
+
+            li.appendChild(a);
+            results.appendChild(li);
+          });
+      });
+    });
+</script>

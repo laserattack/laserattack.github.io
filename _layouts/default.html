@@ -13,8 +13,9 @@
   </head>
   <body>
     <nav>
+      <a href="/search/">Search posts</a>
       <a href="/">About</a>
-      <a href="/categories/">Posts</a>
+      <a href="/categories/">Categories</a>
       <a href="/feed.xml">RSS</a>
       <a rel="me" href="https://mastodon.ml/@serr">Mastodon</a>
       <a rel="me" href="https://github.com/laserattack">GitHub</a>
@@ -24,6 +25,12 @@
       <h4 class="neon-text-cyan">stay weird</h4>
     </header>
     {{ content }}
+    {% for category in page.categories %}
+    <a class="floating-link" href="/categories/{{ category | slugify }}/">
+      Browse category
+    </a>
+    {% break %}
+    {% endfor %}
     <footer>
       <p>Posted on {{ page.date | date_to_long_string: "ordinal" }}</p>
       <p>Have fun</p>

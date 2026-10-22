@@ -29,8 +29,7 @@ a:hover {
 nav a,
 nav a:visited {
   margin-left: 20px;
-  font-size: small;
-  text-decoration: underline 1px orange;
+  text-decoration: underline 2px orange;
 }
 
 nav a:hover {
@@ -42,8 +41,7 @@ nav {
 }
 
 footer {
-  font-size: small;
-  text-decoration: underline 1px orange;
+  text-decoration: underline 2px orange;
 }
 
 header {
@@ -170,6 +168,40 @@ blockquote {
     0 0 7.5px hsl(184, 100%, 46%),
     0 0 22.5px hsl(184, 100%, 46%),
     0 0 45px hsl(184, 100%, 46%);
+}
+
+.floating-link,
+.floating-link:visited,
+.floating-link:hover,
+.floating-link:active {
+  color: #1c1b22;
+  background-color: hsl(184, 100%, 46%);
+  opacity: 1;
+  text-shadow: none;
+}
+
+.floating-link {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 100;
+
+  padding: 8px 12px;
+
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+
+  box-shadow:
+    0 0 7.5px hsl(184, 100%, 46%),
+    0 0 22.5px hsl(184, 100%, 46%),
+    0 0 45px hsl(184, 100%, 46%);
+
+  transition: transform 0.2s ease;
+}
+
+.floating-link:hover {
+  transform: translateY(-4px);
 }
 
 /* black color theme for code highlight */
