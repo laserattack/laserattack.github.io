@@ -83,7 +83,7 @@ sudo cat /proc/acpi/call
 
 скрипт который пишет текущий вольтаж в системный лог (socklog)
 
-```
+``` bash
 #!/usr/bin/env bash
 
 VOLTAGE=$(cat /sys/class/power_supply/BAT0/voltage_now)
@@ -145,7 +145,7 @@ logger -t "current battery voltage" "${VOLTAGE_MV}"
 
 т.е. пока что вот так считаю зарядку
 
-```
+``` bash
 #!/usr/bin/env bash
 
 MAX_VOLTAGE=16800

@@ -12,7 +12,7 @@ categories: [it, programming]
 - **Указатель**: *неконстантный*, указывающий на неконстантную
   переменную
 
-```
+``` cpp
 int a = 10;
 int *p = &a; // OK
 p--; // OK
@@ -28,7 +28,7 @@ p++; // OK
 - **Вывод**: если переменная константная то указатель должен быть
   указывающим на константную переменную
 
-```
+``` cpp
 const int a = 10;
 int *p = &a; // error: invalid conversion from 'const int*' to 'int*'
 p--;
@@ -44,7 +44,7 @@ p++;
   константную память, изменить память на которую он указывает. Сам
   указатель при этом менять можно
 
-```
+``` cpp
 const int a = 10;
 const int *p = &a; // OK
 p--; // OK
@@ -56,7 +56,7 @@ p++; // OK
 `.rodata`, куда поместился литерал. но в общем случае это то не
 означает, потому что тут ошибка та же
 
-```
+``` cpp
 void f(const int *p) {
     (*p)++; // error: increment of read-only location '* p'
 }
@@ -74,7 +74,7 @@ void f(const int *p) {
   память, можно изменить память на которую он указывает. Сам указатель
   при этом менять нельзя
 
-```
+``` cpp
 int a = 10;
 int *const p = &a; // OK
 (*p)++; // OK
@@ -89,7 +89,7 @@ p--; // error: decrement of read-only variable 'p'
   память, то нельзя ни менять через него память на которую он
   указывает, ни менять сам указатель
 
-```
+``` cpp
 const int a = 10;
 const int *const p = &a;
 (*p)++; // error: increment of read-only location '*(const int*)p'
@@ -103,7 +103,7 @@ p--; // error: decrement of read-only variable 'p'
 - **Вывод**: нельзя создать константный объект, если его тип не имеет
   конструктора. Неконстантный объект создать при этом можно
 
-```
+``` cpp
 struct Data {
     int data;
 };
@@ -117,7 +117,7 @@ int main() {
 
 Если определяю конструктор, то все ок
 
-```
+``` cpp
 struct Data {
     int data;
     Data() : data() {}
@@ -134,7 +134,7 @@ int main() {
 - **Вывод**: если объект константный, то даже неконстантные его поля
   менять нельзя (если не пометить их как `mutable`)
 
-```
+``` cpp
 struct Data {
     int data;
     Data() : data() {}
@@ -151,7 +151,7 @@ int main() {
 если поле помечено как `mutable` то его можно менять даже если объект
 константный
 
-```
+``` cpp
 struct Data {
     mutable int data;
     Data() : data() {}
@@ -172,7 +172,7 @@ int main() {
   указатель, то можно менять память на которую он указывает, но не сам
   указатель
 
-```
+``` cpp
 struct Data {
     int *data;
     Data() : data(new int[3]) {}
@@ -195,7 +195,7 @@ int main() {
 т.е. `obj.method()` компилятор превращает образно говоря в
 `Class::method(&obj)`
 
-```
+``` cpp
 #include <iostream>
 
 struct Data {
@@ -227,7 +227,7 @@ int main() {
 
 если определяю метод как константный то все ок
 
-```
+``` cpp
 #include <iostream>
 
 struct Data {
@@ -253,7 +253,7 @@ int main() {
 
 если не менять метод то можно еще так
 
-```
+``` cpp
 #include <iostream>
 
 struct Data {
@@ -281,7 +281,7 @@ int main() {
 
 - **Вывод**: существует перегрузка по `const`
 
-```
+``` cpp
 struct Data {
     void print() {
         std::cout << "non-const\n";
