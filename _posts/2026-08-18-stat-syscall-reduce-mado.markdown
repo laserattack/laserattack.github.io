@@ -63,7 +63,7 @@ newfstatat(AT_FDCWD, "/etc/localtime", {st_mode=S_IFREG|0644, st_size=1535, ...}
 
 вот проблемный участок кода
 
-```
+``` cpp
 if (need_mtime) {
     struct stat st;
     if (stat(entry_file.c_str(), &st) == 0) {
@@ -79,7 +79,7 @@ if (need_mtime) {
 
 получается что функция `std::localtime`
 
-```
+``` cpp
 std::tm *tm = std::localtime(&st.st_mtime);
 ```
 
@@ -130,7 +130,7 @@ std::tm *tm = std::localtime(&st.st_mtime);
 
 поменял `std::localtime` на `localtime_r`
 
-```
+``` diff
 modified   libmado/mado.cpp
 @@ -228,9 +228,10 @@ Mado_Entry::parse(const Mado_Config *cfg,
      if (need_mtime) {

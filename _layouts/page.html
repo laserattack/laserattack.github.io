@@ -29,4 +29,14 @@
       <p>Have fun</p>
     </footer>
   </body>
+  <script>
+    document.querySelectorAll('div.highlighter-rouge').forEach(block => {
+      const language = [...block.classList]
+        .find(name => name.startsWith('language-'));
+
+      if (language) {
+        block.dataset.language = language.replace('language-', '');
+      }
+    });
+  </script>
 </html>

@@ -211,6 +211,35 @@ blockquote {
   transform: translateY(-4px);
 }
 
+div.highlighter-rouge {
+  position: relative;
+}
+
+div.highlighter-rouge::before {
+  content: attr(data-language);
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #1c1b22;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow:
+    0 0 3px #C7C7C7,
+    0 0 3px #C7C7C7,
+    0 0 7.5px #C7C7C7,
+    0 0 7.5px #C7C7C7,
+    0 0 15px #C7C7C7,
+    0 0 22.5px #C7C7C7,
+    0 0 45px #C7C7C7;
+  font-family: system-ui, sans-serif;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+div.highlighter-rouge pre {
+  padding-top: 40px;
+}
+
 /* black color theme for code highlight */
 .highlight {
   background: #1c1b22;
