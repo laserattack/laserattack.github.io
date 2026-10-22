@@ -4,9 +4,6 @@ title: Использование PGP ключей для доступа по SS
 category: it
 ---
 
-- NAME: Использование PGP ключей для доступа по SSH
-- TAGS: it, linux, guide, pgp, ssh
-
 # Матчасть
 
 ## gpg-agent

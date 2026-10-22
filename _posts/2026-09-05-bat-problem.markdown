@@ -4,9 +4,6 @@ title: Проблема с определением заряда батареи 
 category: it
 ---
 
-- NAME: Проблема с определением заряда батареи на HP Victus 16
-- TAGS: linux, it, personal, guide, hardware
-
 # Система
 
 - **Модель:** HP Victus 16-e0xxx

@@ -5,7 +5,7 @@ permalink: /search/
 
 <h1 class="neon-text-cyan">search posts</h1>
 
-<p><i>Case-insensitive substring search across post titles and content</i></p>
+<p><i>Case-insensitive substring search across post names and URLs</i></p>
 
 Search: <input type="search" id="search">
 <ul id="results"></ul>
@@ -24,21 +24,28 @@ Search: <input type="search" id="search">
 
         if (!query) return;
 
-        posts
-          .filter(post =>
-            post.title.toLowerCase().includes(query) ||
-            post.content.toLowerCase().includes(query)
-          )
-          .forEach(post => {
-            const li = document.createElement('li');
-            const a = document.createElement('a');
+        const matches = posts.filter(post =>
+          post.title.toLowerCase().includes(query) ||
+          post.url.toLowerCase().includes(query)
+        );
 
-            a.href = post.url;
-            a.textContent = post.title;
+        if (!matches.length) {
+          const li = document.createElement('li');
+          li.textContent = 'None found';
+          results.appendChild(li);
+          return;
+        }
 
-            li.appendChild(a);
-            results.appendChild(li);
-          });
+        matches.forEach(post => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+
+          a.href = post.url;
+          a.textContent = post.title;
+
+          li.appendChild(a);
+          results.appendChild(li);
+        });
       });
     });
 </script>

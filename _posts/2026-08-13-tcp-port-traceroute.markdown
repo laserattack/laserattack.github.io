@@ -4,9 +4,6 @@ title: tcp traceroute с конкретным портом
 category: it
 ---
 
-- NAME: tcp traceroute с конкретным портом
-- TAGS: vpn, traceroute, network, ssh
-
 например бывает что ssh не подключается к серверу хотя пинг к нему
 идет, тут вот пример как потрейсить
 

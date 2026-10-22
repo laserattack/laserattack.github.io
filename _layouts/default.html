@@ -24,6 +24,9 @@
       <h1><a href="/"><img alt="E" src="/assets/logo.jpg"></a> laserattack</h1>
       <h4 class="neon-text-cyan">stay weird</h4>
     </header>
+    {% if page.title %}
+      <h1 class="neon-text-red">{{ page.title }}</h1>
+    {% endif %}
     {{ content }}
     {% for category in page.categories %}
     <a class="floating-link" href="/categories/{{ category | slugify }}/">
@@ -32,6 +35,9 @@
     {% break %}
     {% endfor %}
     <footer>
+      {% if page.title %}
+        <p>{{ page.title }}</p>
+      {% endif %}
       <p>Posted on {{ page.date | date_to_long_string: "ordinal" }}</p>
       <p>Have fun</p>
     </footer>
