@@ -10,6 +10,7 @@
     <link rel="stylesheet"   type="text/css" href="/assets/page.css">
     <script src="/assets/js/count.js" async
             data-goatcounter="https://laserattack.goatcounter.com/count"></script>
+    <script src="/assets/js/code.js" defer></script>
   </head>
   <body>
     <nav>
@@ -45,14 +46,4 @@
       <p>Have fun</p>
     </footer>
   </body>
-  <script>
-    document.querySelectorAll('div.highlighter-rouge').forEach(block => {
-      const language = [...block.classList]
-        .find(name => name.startsWith('language-'));
-
-      if (language) {
-        block.dataset.language = language.replace('language-', '');
-      }
-    });
-  </script>
 </html>
