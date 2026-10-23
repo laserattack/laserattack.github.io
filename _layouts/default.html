@@ -29,15 +29,53 @@
       <h1 class="neon-text-red">{{ page.title }}</h1>
     {% endif %}
     {{ content }}
-    {% if page.categories.size > 0 %}
-    <div class="floating-links">
-      {% for category in page.categories %}
-        <a class="floating-link" href="/categories/{{ category | slugify }}/">
-          {{ category }}
-        </a>
+    {% for category in page.categories %}
+      {% assign posts = site.categories[category] %}
+
+      {% for post in posts %}
+        {% if post.url == page.url %}
+          {% assign current_index = forloop.index0 %}
+
+          <div class="post-navigation">
+            <p>Category: <a href="/categories/{{ category | slugify }}/">{{ category }}</a></p>
+
+            {% assign older_start = current_index | plus: 1 %}
+            {% assign older_end = current_index | plus: 5 %}
+
+            {% if older_start < posts.size %}
+              <p>Previous:</p>
+              <ul>
+                {% for i in (older_start..older_end) %}
+                  {% assign older = posts[i] %}
+                  {% if older %}
+                    <li><a href="{{ older.url | relative_url }}">{{ older.title }}</a></li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+
+            {% assign newer_start = current_index | minus: 5 %}
+            {% assign newer_end = current_index | minus: 1 %}
+
+            {% if newer_end >= 0 %}
+              <p>Next:</p>
+              <ul>
+                {% for i in (newer_start..newer_end) %}
+                  {% if i >= 0 %}
+                    {% assign newer = posts[i] %}
+                    {% if newer %}
+                      <li><a href="{{ newer.url | relative_url }}">{{ newer.title }}</a></li>
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+
+          {% break %}
+        {% endif %}
       {% endfor %}
-    </div>
-    {% endif %}
+    {% endfor %}
     <footer>
       {% if page.title %}
         <p>{{ page.title }}</p>
