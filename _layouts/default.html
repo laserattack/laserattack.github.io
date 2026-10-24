@@ -51,7 +51,7 @@
                 {% for i in (older_start..older_end) %}
                   {% assign older = posts[i] %}
                   {% if older %}
-                    <li><a href="{{ older.url | relative_url }}">{{ older.title }}</a></li>
+                    <li><a href="{{ older.url | remove: '/index.html' | relative_url }}">{{ older.title }}</a></li>
                   {% endif %}
                 {% endfor %}
               </ul>
@@ -67,7 +67,7 @@
                   {% if i >= 0 %}
                     {% assign newer = posts[i] %}
                     {% if newer %}
-                      <li><a href="{{ newer.url | relative_url }}">{{ newer.title }}</a></li>
+                      <li><a href="{{ newer.url | remove: '/index.html' | relative_url }}">{{ newer.title }}</a></li>
                     {% endif %}
                   {% endif %}
                 {% endfor %}

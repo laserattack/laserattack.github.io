@@ -5,7 +5,7 @@ layout: null
 {% for post in site.posts %}
   {
     "title": {{ post.title | jsonify }},
-    "url": {{ post.url | relative_url | jsonify }}
+    "url": {{ post.url | remove: '/index.html' | relative_url | jsonify }}
   }{% unless forloop.last %},{% endunless %}
 {% endfor %}
 ]
