@@ -23,7 +23,7 @@ document.querySelectorAll('div.highlighter-rouge').forEach(block => {
 
     setTimeout(() => {
       button.textContent = 'TAP TO COPY';
-    }, 500);
+    }, 1500);
   });
 
   block.appendChild(button);
