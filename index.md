@@ -15,7 +15,7 @@ topics
 
 - **Repo**: [github.com/laserattack/laserattack.github.io](https://github.com/laserattack/laserattack.github.io)
 - **Last post**: [{{ site.posts.first.title }}]({{ site.posts.first.url | remove: '/index.html' }})
-- **Total posts**: {{ site.posts.size }} (`{{ site.posts.last.date | date: "%Y-%m" }} - {{ site.posts.first.date | date: "%Y-%m" }}`)
+- **Total**: {{ site.posts.size }} posts (`{{ site.posts.last.date | date: "%Y-%m" }} - {{ site.posts.first.date | date: "%Y-%m" }}`) in {{ site.categories.size }} [categories](/categories/)
 {% for category in site.categories %}
   - **[{{ category[0] }}](/categories/{{ category[0] }}/)**: {{ category[1].size }}
 {% endfor %}
