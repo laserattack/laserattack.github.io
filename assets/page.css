@@ -298,3 +298,55 @@ div.highlighter-rouge pre {
 .highlight .vg { color: #b58900; }
 .highlight .vi { color: #b58900; }
 .highlight .il { color: #d33682; }
+
+@media (max-width: 768px) {
+  body {
+    margin: 15px;
+    max-width: none;
+    overflow-wrap: break-word;
+  }
+
+  nav {
+    float: none;
+  }
+
+  nav a,
+  nav a:visited {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+
+  header {
+    padding-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+
+  header h1 a img {
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+  }
+
+  header h4 {
+    display: block;
+    margin-top: 10px;
+  }
+
+  h1, h2, h3, h4 {
+    overflow-wrap: break-word;
+  }
+
+  pre {
+    font-size: 13px;
+    overflow-x: auto;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
