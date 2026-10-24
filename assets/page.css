@@ -77,6 +77,8 @@ details[open] {
 }
 
 img {
+  max-width: 100%;
+  height: auto;
   box-shadow: 2px 2px 15px rgba(0,0,0,0.5);
   margin-top: 10px;
   margin-bottom: 20px;
@@ -343,10 +345,5 @@ div.highlighter-rouge pre {
   pre {
     font-size: 13px;
     overflow-x: auto;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
   }
 }
