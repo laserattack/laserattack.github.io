@@ -26,6 +26,7 @@ topics
 - **GitHub**: [github.com/laserattack](https://github.com/laserattack)
 - **Mastodon**: [mastodon.ml/@serr](https://mastodon.ml/@serr)
 - **XMPP**: [laserattack@0nl1ne.at](xmpp:laserattack@0nl1ne.at)
+- **MAIL**: [laserattack@cock.li](mailto:laserattack@cock.li)
 - **PGP**:
 
 ```
