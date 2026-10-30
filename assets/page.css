@@ -29,7 +29,9 @@ a:hover {
 nav a,
 nav a:visited {
   margin-left: 20px;
-  text-decoration: underline 2px orange;
+  text-decoration-line: underline;
+  text-decoration-color: orange;
+  text-decoration-thickness: 2px;
 }
 
 nav a:hover {
