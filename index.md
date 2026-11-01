@@ -13,6 +13,9 @@ These notes can be about pretty much anything, but most of them are
 related to _IT_, _programming_, _Linux_, _technology_, and other technical
 topics
 
+The site's design is inspired by [Xah Lee's website](http://xahlee.info/) and was implemented
+with the help of `ChatGPT`, an AI model by `OpenAI`
+
 - **Repo**: [github.com/laserattack/laserattack.github.io](https://github.com/laserattack/laserattack.github.io)
 - **Last post**: [{{ site.posts.first.title }}]({{ site.posts.first.url | remove: '/index.html' }}) (`{{ site.posts.first.date | date: "%Y-%m-%d" }}`)
 - **Total**: {{ site.posts.size }} posts (`{{ site.posts.last.date | date: "%Y-%m" }} - {{ site.posts.first.date | date: "%Y-%m" }}`) in {{ site.categories.size }} [categories](/categories/)
