@@ -20,6 +20,8 @@
   --color-operator: #bdbdff;
   --color-green: #b4df9d;
   --color-insert-background: #243424;
+  --color-red: #ffb8b4;
+  --color-delete-background: #342424;
   --color-type: #d2b0ee;
   --color-string: #a8dca8;
   --color-variable: #efcf88;
@@ -84,7 +86,7 @@ a:is([href^="https://"], [href^="http://"], [href^="//"]):not(
   mask: var(--external-link-icon) center / contain no-repeat;
 }
 
-a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+a:focus-visible, button:focus-visible, summary:focus-visible {
   outline: 2px solid var(--color-link-hover);
   outline-offset: 3px;
 }
@@ -201,12 +203,20 @@ div.highlighter-rouge[data-language]::before {
 }
 
 input[type="search"] {
+  -webkit-appearance: none;
+  appearance: none;
   max-width: 100%;
-  padding: 5px 8px;
-  border: 1px solid var(--color-border);
+  padding: 4px 7px;
+  border: 2px solid var(--color-border);
+  border-radius: 0;
   background: var(--color-control-background);
   color: var(--color-text);
   font: inherit;
+}
+input[type="search"]:focus {
+  border-color: var(--color-link-hover);
+  outline: none;
+  box-shadow: none;
 }
 #results li { margin: 0.4em 0; }
 hr { border: 0; border-top: 1px solid var(--color-border); margin: var(--space-large) 0; }
@@ -255,8 +265,8 @@ th { background: var(--color-inline-code-background); }
 }
 
 .highlight .gd {
-  color: var(--color-text);
-  background-color: var(--color-pink);
+  color: var(--color-red);
+  background-color: var(--color-delete-background);
 }
 
 .highlight .ge {
