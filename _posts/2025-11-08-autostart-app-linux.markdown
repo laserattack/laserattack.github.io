@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: автозапуск приложений linux
 categories: [linux, it]
 ---

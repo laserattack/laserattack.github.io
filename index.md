@@ -3,7 +3,7 @@ layout: page
 permalink: /
 ---
 
-<h1 class="neon-text-green">about this site</h1>
+<h1>about this site</h1>
 
 I often write notes for myself and keep them locally. Some of them,
 which I find particularly useful or worth sharing, end up on this
@@ -22,7 +22,7 @@ with the help of `ChatGPT`, an AI model by `OpenAI`
 {% for category in site.categories %}  - **[{{ category[0] }}](/categories/{{ category[0] }}/)**: {{ category[1].size }}
 {% endfor %}
 
-<h1 class="neon-text-red">about me</h1>
+<h1>about me</h1>
 
 - **Nicknames**: `serr`, `laserattack`
 - **GitHub**: [github.com/laserattack](https://github.com/laserattack)

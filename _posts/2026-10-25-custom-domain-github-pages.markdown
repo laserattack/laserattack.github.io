@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: свой домен github pages
 categories: it
 ---

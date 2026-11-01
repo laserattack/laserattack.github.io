@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: tcp traceroute с конкретным портом
 category: it
 ---

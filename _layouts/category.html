@@ -3,13 +3,13 @@ layout: page
 ---
 <section>
   <p><a href="/categories/">&lt;&lt; All categories</a></p>
-  <h1 class="neon-text-red">category: {{ page.category }}</h1>
-  <ul class="post-list">
+  <h1>category: {{ page.category }}</h1>
+  <ul class="entry-list">
     {% for post in site.categories[page.category] %}
     <li>
-      <span class="post-meta">{{ post.date | date: "%-d. %B %Y" }}</span>
+      <span class="entry-meta">{{ post.date | date: "%-d. %B %Y" }}</span>
       <h2>
-        <a class="post-link" href="{{ post.url | remove: '/index.html' }}">{{ post.title }}</a>
+        <a href="{{ post.url | remove: '/index.html' }}">{{ post.title }}</a>
       </h2>
     </li>
     {% endfor %}

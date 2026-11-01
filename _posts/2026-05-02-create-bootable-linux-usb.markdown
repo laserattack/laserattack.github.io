@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Создание загрузочной флешки Linux
 category: it
 ---

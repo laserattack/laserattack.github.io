@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: форматы переноса строк в windows и linux
 categories: [it]
 ---

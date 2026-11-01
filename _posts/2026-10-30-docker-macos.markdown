@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: работа с docker на macos
 categories: [macos, it]
 ---

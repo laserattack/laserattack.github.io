@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Проблема с определением заряда батареи на HP Victus 16
 category: it
 ---

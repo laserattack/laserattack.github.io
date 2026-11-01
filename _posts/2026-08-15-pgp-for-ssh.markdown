@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Использование PGP ключей для доступа по SSH
 categories: [it, security]
 ---

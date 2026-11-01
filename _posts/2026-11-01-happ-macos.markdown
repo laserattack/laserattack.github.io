@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: как работает Happ на macOS и зачем ему фоновая служба
 categories: [macos, it]
 ---

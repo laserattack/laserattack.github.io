@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: вход в bios и включение/выключение постоянной работы вентиляторов на hp victus
 categories: [it]
 ---

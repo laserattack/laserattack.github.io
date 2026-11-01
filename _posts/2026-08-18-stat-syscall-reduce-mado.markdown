@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Как я уменьшил в 2 раза число системных вызовов newfstatat в mado
 category: it
 ---

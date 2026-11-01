@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: надпись на двери пирожковой / три столика и крепкий чай
 categories: literature
 ---

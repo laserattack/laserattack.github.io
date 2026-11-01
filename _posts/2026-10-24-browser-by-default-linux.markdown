@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: установка браузера по умолчанию для открытия ссылок linux
 categories: [linux, it]
 ---

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: автоматическое выполнение задач по расписанию macos
 categories: [macos, it]
 ---

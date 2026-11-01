@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: учительница спросила какое у меня любимое животное
 categories: literature
 ---
