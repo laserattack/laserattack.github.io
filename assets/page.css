@@ -111,22 +111,28 @@ nav a, nav a:visited {
 }
 
 header { padding-top: var(--space-small); margin-bottom: var(--space-large); }
-header h1 { margin: 0.5em 0; font-size: 2rem; }
-header h1 a { font-size: inherit; }
-header h1 a img {
-  width: 64px;
-  height: 64px;
-  margin: 0 var(--space-small) 0 0;
-  vertical-align: middle;
-}
-header h4 {
-  display: inline;
+.site-symbol {
+  display: inline-block;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.2rem;
-  font-style: italic;
-  text-decoration: underline;
-  text-decoration-color: #d1a84f;
+  font-size: 1.5em;
+  font-weight: normal;
+  line-height: 1;
+  vertical-align: -0.08em;
 }
+.site-name, .site-name:visited { color: var(--color-text); }
+.site-name:hover { color: var(--color-link-hover); }
+.site-signature {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-small) var(--space-medium);
+  margin-top: var(--space-large);
+}
+.site-signature .site-name {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+}
+.site-tagline { color: var(--color-text); font-size: 1rem; }
 
 footer {
   margin-top: var(--space-section);
@@ -366,8 +372,6 @@ th { background: var(--color-inline-code-background); }
     margin-bottom: var(--space-medium);
   }
   nav a, nav a:visited { display: inline-block; padding: 4px; font-size: 1rem; }
-  header h1 { font-size: 1.7rem; }
-  header h1 a img { width: 48px; height: 48px; }
   h1 { font-size: 1.7rem; }
   pre, code { font-size: 0.85rem; }
   blockquote { margin-inline: var(--space-small); }
