@@ -7,10 +7,18 @@ permalink: /search/
 
 <p><i>Case-insensitive substring search across post titles and URLs</i></p>
 
-🔍 Search: <input type="search" id="search">
-<ul id="results"></ul>
+<noscript>
+  <p>Post search requires JavaScript. Enable JavaScript in your browser or <a href="/categories/">browse posts by category</a></p>
+</noscript>
+
+<div id="search-controls" hidden>
+  <label for="search">🔍 Search:</label> <input type="search" id="search">
+  <ul id="results"></ul>
+</div>
 
 <script>
+  document.getElementById('search-controls').hidden = false;
+
   const input = document.getElementById('search');
   const results = document.getElementById('results');
 

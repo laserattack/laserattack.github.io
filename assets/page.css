@@ -254,7 +254,7 @@ div.highlighter-rouge {
   position: relative;
 }
 
-div.highlighter-rouge::before {
+div.highlighter-rouge[data-language]::before {
   content: attr(data-language);
   position: absolute;
   top: var(--space-small);
@@ -275,7 +275,7 @@ div.highlighter-rouge::before {
   pointer-events: none;
 }
 
-div.highlighter-rouge pre {
+div.highlighter-rouge.has-code-controls pre {
   padding-top: var(--space-header);
 }
 

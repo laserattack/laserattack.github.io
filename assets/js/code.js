@@ -27,4 +27,5 @@ document.querySelectorAll('div.highlighter-rouge').forEach(block => {
   });
 
   block.appendChild(button);
+  block.classList.add('has-code-controls');
 });
