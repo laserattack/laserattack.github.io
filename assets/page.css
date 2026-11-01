@@ -99,7 +99,7 @@ nav {
   max-height: calc(100vh - 24px);
   overflow-y: auto;
   padding: var(--space-small);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-pink);
   background: var(--color-control-background);
 }
 nav a, nav a:visited {
