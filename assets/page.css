@@ -65,6 +65,25 @@ p { margin: 1em 0; }
 /* Xah's links are slightly larger than the surrounding text. */
 a, a:visited { color: var(--color-link); font-size: 1.1em; text-decoration: none; }
 a:hover { color: var(--color-link-hover); background: var(--color-link-hover-background); text-decoration: underline; }
+a:has(img):hover { background: none; text-decoration: none; }
+
+/* Mark external web links; canonical and GitHub Pages URLs stay unmarked. */
+a:is([href^="https://"], [href^="http://"], [href^="//"]):not(
+  [href*="//laserattack.net/"], [href$="//laserattack.net"],
+  [href*="//laserattack.github.io/"], [href$="//laserattack.github.io"]
+):not(:has(img))::after {
+  --external-link-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 10 10 2M2 2h8v8' fill='none' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E");
+  content: "";
+  display: inline-block;
+  width: 0.65em;
+  height: 0.65em;
+  margin-left: 0.25em;
+  vertical-align: 0.05em;
+  background: currentColor;
+  -webkit-mask: var(--external-link-icon) center / contain no-repeat;
+  mask: var(--external-link-icon) center / contain no-repeat;
+}
+
 a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
   outline: 2px solid var(--color-link-hover);
   outline-offset: 3px;
@@ -325,7 +344,7 @@ th { background: var(--color-inline-code-background); }
 }
 
 @media (max-width: 768px) {
-  body { margin: var(--space-small) var(--space-medium) var(--space-section); }
+  body { margin: var(--space-medium) var(--space-medium) var(--space-section); }
   nav {
     position: static;
     width: auto;
