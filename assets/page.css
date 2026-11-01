@@ -192,6 +192,8 @@ div.highlighter-rouge.has-code-controls pre { padding-top: 51px; }
   line-height: 1.4;
 }
 .copy-code {
+  -webkit-user-select: none;
+  user-select: none;
   left: var(--space-medium);
   padding: 2px 7px;
   border: 1px solid var(--color-border);
