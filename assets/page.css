@@ -123,7 +123,7 @@ header {
   line-height: 1;
   vertical-align: -0.08em;
 }
-.site-name, .site-name:visited { color: var(--color-text); }
+.site-name, .site-name:visited { color: var(--color-link); }
 .site-name:hover { color: var(--color-link-hover); }
 .site-signature {
   display: flex;
