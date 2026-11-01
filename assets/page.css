@@ -1,17 +1,19 @@
 /* Typography, colors and plain navigation inspired by XahLee.info. */
 :root {
   color-scheme: dark;
-  --color-background: #111;
-  --color-text: #fff;
-  --color-link: #9e9eff;
+  --color-background: #222;
+  --color-text: #eee;
+  --color-link: #b0b0ff;
   --color-link-hover: #ffff80;
-  --color-link-hover-background: #282828;
-  --color-muted: #b5b5b5;
+  --color-link-hover-background: #3a3a3a;
+  --color-muted: #bdbdbd;
   --color-border: #777;
-  --color-panel: #191919;
-  --color-neon-red: #fff;
-  --color-neon-green: #fff;
-  --color-neon-cyan: #fff;
+  --color-panel: #292929;
+  --color-control-background: #1c1c1c;
+  --color-inline-code-background: #333;
+  --color-neon-red: var(--color-text);
+  --color-neon-green: var(--color-text);
+  --color-neon-cyan: var(--color-text);
   --color-pink: #e6a4d5;
   --color-comment: #aaa;
   --color-error: #8b2020;
@@ -71,13 +73,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 nav {
   position: fixed;
   top: 12px;
-  left: 8px;
+  left: 12px;
   width: var(--sidebar-width);
   max-height: calc(100vh - 24px);
   overflow-y: auto;
   padding: var(--space-small);
   border: 1px solid var(--color-border);
-  background: #000;
+  background: var(--color-control-background);
 }
 nav a, nav a:visited {
   display: block;
@@ -138,7 +140,7 @@ summary { cursor: pointer; color: var(--color-link); }
 }
 
 pre, code { font-family: var(--font-code); font-size: var(--code-size); }
-code { padding: 1px 4px; background: #282828; color: #e6d4ae; }
+code { padding: 1px 4px; background: var(--color-inline-code-background); color: #e6d4ae; }
 pre {
   margin: 1em 0;
   padding: var(--code-padding-block) var(--space-medium);
@@ -162,7 +164,7 @@ div.highlighter-rouge.has-code-controls pre { padding-top: 51px; }
   left: var(--space-medium);
   padding: 2px 7px;
   border: 1px solid var(--color-border);
-  background: #000;
+  background: var(--color-control-background);
   color: var(--color-link);
   cursor: pointer;
 }
@@ -183,7 +185,7 @@ input[type="search"] {
   max-width: 100%;
   padding: 5px 8px;
   border: 1px solid var(--color-border);
-  background: #000;
+  background: var(--color-control-background);
   color: var(--color-text);
   font: inherit;
 }
@@ -191,7 +193,7 @@ input[type="search"] {
 hr { border: 0; border-top: 1px solid var(--color-border); margin: var(--space-large) 0; }
 table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
 th, td { padding: 6px 10px; border: 1px solid var(--color-border); }
-th { background: #282828; }
+th { background: var(--color-inline-code-background); }
 ::selection { background: #525283; color: #fff; }
 
 /* Rouge syntax palette. */
