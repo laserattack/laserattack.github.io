@@ -194,7 +194,7 @@ div.highlighter-rouge.has-code-controls pre { padding-top: 51px; }
 .copy-code {
   -webkit-user-select: none;
   user-select: none;
-  left: var(--space-medium);
+  left: calc(var(--space-medium) + 1px);
   padding: 2px 7px;
   border: 1px solid var(--color-border);
   background: var(--color-control-background);
@@ -205,6 +205,7 @@ div.highlighter-rouge.has-code-controls pre { padding-top: 51px; }
 div.highlighter-rouge[data-language]::before {
   content: attr(data-language);
   right: var(--space-medium);
+  padding-top: 3px;
   max-width: 45%;
   overflow: hidden;
   text-overflow: ellipsis;
