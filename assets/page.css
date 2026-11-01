@@ -110,7 +110,11 @@ nav a, nav a:visited {
   line-height: 1.2;
 }
 
-header { padding-top: var(--space-small); margin-bottom: var(--space-large); }
+header {
+  padding-bottom: var(--space-section);
+  margin-bottom: var(--space-large);
+  border-bottom: 1px solid var(--color-border);
+}
 .site-symbol {
   display: inline-block;
   font-family: Georgia, "Times New Roman", serif;
