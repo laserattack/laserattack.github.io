@@ -1,6 +1,8 @@
-<svg class="site-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198 80" fill="none" aria-hidden="true" focusable="false">
+<svg class="site-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="-2 0 208 80" fill="none" aria-hidden="true" focusable="false">
   <!-- A grumpy alien slime faces a space-adventurer duck. -->
   <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Move the body outward while keeping the gun and hand fixed. -->
+    <g transform="translate(-6 0)">
     <!-- Simple Bulovan-inspired cyclops silhouette. -->
     <path d="M10 60c5-8 0-20 7-31 6-11 23-14 32-3 9 10 3 23 12 35 8 12-8 13-15 8-7 7-15 2-19 0-13 6-25 0-17-9Z" fill="currentColor" fill-opacity=".2"/>
     <path d="M32 20q-5-7 0-12"/>
@@ -8,11 +10,14 @@
     <path d="M23 30q10-5 21 0c0 17-21 17-21 0Z" fill="var(--color-background, #222)"/>
     <ellipse cx="36" cy="35" rx="3.5" ry="5" fill="currentColor" stroke="none"/>
     <path d="M26 52q8-6 17-1"/>
-    <!-- Slime's ray gun and squishy arm. -->
-    <path d="M47 50q8 5 14-5m-12 12q10 4 16-8"/>
+    </g>
+    <!-- Slime's ray gun and extended squishy arm. -->
+    <path d="M43 57q9 7 18-2"/>
     <path d="M59 39h17q5 0 5 5t-5 5h-8l-2 9h-6l3-10h-4z" fill="currentColor" fill-opacity=".35"/>
     <path d="M79 41h6v6h-6m-14-8v-4h8v4"/>
-    <g transform="translate(8 0)">
+    <!-- Fingers wrap around the grip, in front of the gun. -->
+    <path d="M60 52q1-2 3-1l4 1q2 1 0 3l-4 2q-3 0-3-3Z" fill="var(--color-background, #222)"/>
+    <g transform="translate(16 0)">
     <!-- Duck in profile: clean cap, broad bill and a dark pupil. -->
     <path d="M150 55q14-5 22 4 5 5 6 12h-33q-1-10 5-16Z" fill="currentColor" fill-opacity=".2"/>
     <path d="m150 71-5 6h14l3-6m8 0 2 6h13l-8-6"/>
@@ -21,14 +26,21 @@
     <path d="M125 44q11 2 21-1" stroke-width="2"/>
     <ellipse cx="151" cy="32" rx="6" ry="8" fill="currentColor" stroke="none"/>
     <ellipse cx="149" cy="33" rx="2.5" ry="4.5" fill="var(--color-background, #222)" stroke="none"/>
-    <path d="m145 23 10 2"/>
-    <path d="M145 19q-4-12 10-13 13-1 16 10l-26 3Z" fill="currentColor" fill-opacity=".25"/>
-    <path d="m145 20 27-3"/>
+    <!-- Baseball cap with a forward-facing brim. -->
+    <path d="M142 23C141 16 148 11 157 11C165 11 171 17 169 23Z" fill="var(--color-background, #222)" stroke="none"/>
+    <path d="M142 23C141 16 148 11 157 11C165 11 171 17 169 23Z" fill="currentColor" fill-opacity=".25"/>
+    <path d="M143 21h-11q-7 1 0 3h11Z" fill="currentColor" fill-opacity=".35"/>
+    <path d="M157 12q-6 4-6 10" stroke-width="1.5"/>
     <path d="m156 58 5 6 5-7"/>
-    <!-- The wing sits below the gun, with space around the bill. -->
-    <path d="M160 64q-7 5-15-2l-7-5"/>
+    <!-- The arm emerges from the middle of the sleeve and meets the lowered hand. -->
+    <path d="M158.5 61Q147 69 131 66"/>
+    <!-- Counter the body shift so the gun and hand stay in place. -->
+    <g transform="translate(-8 0)">
     <path d="M123 51h15q5 0 5 5v3h-8l3 8h-6l-5-8h-4q-4 0-4-4t4-4Z" fill="currentColor" fill-opacity=".35"/>
     <path d="M119 52h-6v6h6"/>
+    <!-- The wing ends in a hand clasping the angled grip. -->
+    <path d="M139 64q-1-2-3-1l-4 1q-2 1 0 3l4 2q3 0 3-3Z" fill="var(--color-background, #222)"/>
+    </g>
     </g>
   </g>
   <!-- Two offset laser bolts, travelling in opposite directions. -->
