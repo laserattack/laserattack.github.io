@@ -40,7 +40,7 @@
 html { background: var(--color-background); }
 body {
   max-width: var(--content-width);
-  margin: 8px 16px 48px max(17.5%, 13rem);
+  margin: var(--space-large) var(--space-medium) var(--space-large) max(17.5%, 13rem);
   color: var(--color-text);
   font-family: var(--font-family);
   font-size: 16px;
@@ -127,6 +127,7 @@ header {
   gap: var(--space-small) var(--space-medium);
   margin-top: var(--space-large);
 }
+header .site-signature { margin-top: 0; }
 .site-signature .site-name {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 2rem;
@@ -134,7 +135,7 @@ header {
 .site-tagline { color: var(--color-text); font-size: 1rem; }
 
 footer {
-  margin-top: var(--space-section);
+  margin-top: var(--space-large);
   padding-top: var(--space-small);
   border-top: 1px solid var(--color-border);
   color: var(--color-muted);
@@ -349,7 +350,7 @@ th { background: var(--color-inline-code-background); }
 }
 
 @media (max-width: 768px) {
-  body { margin: var(--space-medium) var(--space-medium) var(--space-section); }
+  body { margin: var(--space-medium) var(--space-medium) var(--space-large); }
   nav {
     position: static;
     width: auto;
@@ -358,7 +359,7 @@ th { background: var(--color-inline-code-background); }
     flex-wrap: wrap;
     gap: 4px 12px;
     padding: 6px;
-    margin-bottom: var(--space-medium);
+    margin-bottom: var(--space-large);
   }
   nav a, nav a:visited { display: inline-block; padding: 4px; font-size: 1rem; }
   h1 { font-size: 1.7rem; }
