@@ -114,11 +114,9 @@ header {
 }
 .site-symbol {
   display: inline-block;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.5em;
-  font-weight: normal;
-  line-height: 1;
-  vertical-align: -0.08em;
+  width: auto;
+  height: 2.2em;
+  vertical-align: -0.45em;
 }
 .site-name, .site-name:visited { color: var(--color-link); }
 .site-name:hover { color: var(--color-link-hover); }

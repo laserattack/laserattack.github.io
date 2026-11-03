@@ -14,6 +14,11 @@ technical topics
 The site's design is inspired by [Xah Lee's website](http://xahlee.info/) and was implemented
 with the help of `ChatGPT`, an AI model by `OpenAI`
 
+The site's emblem is inspired by *DuckTales* (1987), season 1, episode 8:
+“Where No Duck Has Gone Before”. A visit to a sci-fi TV set sends Launchpad
+and the kids into real outer space, where they encounter the slimy alien
+overlord Bulovan
+
 - **Repo**: [github.com/laserattack/laserattack.github.io](https://github.com/laserattack/laserattack.github.io)
 - **Last post**: [{{ site.posts.first.title }}]({{ site.posts.first.url | remove: '/index.html' }}) (`{{ site.posts.first.date | date: "%Y-%m-%d" }}`)
 - **Total**: {{ site.posts.size }} posts (`{{ site.posts.last.date | date: "%Y-%m" }} - {{ site.posts.first.date | date: "%Y-%m" }}`) in {{ site.categories.size }} [categories](/categories/)
