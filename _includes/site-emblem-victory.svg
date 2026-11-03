@@ -1,0 +1,49 @@
+<svg class="site-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="-2 0 208 80" fill="none" aria-hidden="true" focusable="false">
+  <!-- The duck celebrates; the defeated slime has dropped its ray gun. -->
+  <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- The same cyclops, now slumped into a low puddle. -->
+    <g transform="translate(0 1.615)">
+    <path d="M8 68q3-7 13-9c2-10 11-15 22-12 10 2 13 8 16 15 12-1 20 4 17 9-3 5-16 5-24 1-8 5-16 4-22 0-12 5-27 2-22-4Z" fill="currentColor" fill-opacity=".2"/>
+    <path d="M32 46.7Q24 38 17 46" stroke-linecap="butt"/>
+    <circle cx="15" cy="47" r="3" fill="currentColor"/>
+    <path d="M25 58q10-3 21 0c-1 11-20 11-21 0Z" fill="var(--color-background, #222)"/>
+    <path d="m32 58 6 6m0-6-6 6" stroke-width="2"/>
+    <path d="M31 70q7-3 13-1" stroke-width="2"/>
+    </g>
+    <!-- The slime's abandoned gun rests on the ground. -->
+    <g transform="translate(25 15) rotate(12 70 50)">
+      <path d="M59 39h17q5 0 5 5t-5 5h-8l-2 9h-6l3-10h-4z" fill="currentColor" fill-opacity=".35"/>
+      <path d="M80.3 41H85v6h-4.7" stroke-linecap="butt"/>
+      <path d="M65 39v-4h8v4"/>
+    </g>
+    <g transform="translate(16 0)">
+    <!-- The victorious duck smiles, keeping its gun lowered. -->
+    <path d="M150 55q14-5 22 4 5 5 6 12h-33q-1-10 5-16Z" fill="currentColor" fill-opacity=".2"/>
+    <path d="m150 71-5 6h14l3-6m8 0 2 6h13l-8-6"/>
+    <path d="M149 21c-8 4-10 13-8 21 1 10 8 15 17 15 13 0 19-10 17-22-1-10-12-18-26-14Z" fill="var(--color-background, #222)" stroke="none"/>
+    <path d="M149 21c-8 4-10 13-8 21 1 10 8 15 17 15 13 0 19-10 17-22-1-10-12-18-26-14Z" fill="currentColor" fill-opacity=".2"/>
+    <path d="M139.5 37C137 38 132 40 126 40c-4 0-5 3-2 5 6 4 18 5 25 1" fill="currentColor" fill-opacity=".2" stroke-linecap="butt"/>
+    <path d="M125 44q11 2 21-1" stroke-width="2"/>
+    <!-- A cheerful closed eye shows the victory. -->
+    <path d="M146 34q5-7 10 0"/>
+    <!-- Baseball cap with a forward-facing brim. -->
+    <path d="M142 20C143 14 149 11 157 11C165 11 171 17 169 23H132q-7-1.5 0-3Z" fill="var(--color-background, #222)" stroke="none"/>
+    <path d="M142 20C143 14 149 11 157 11C165 11 171 17 169 23H132q-7-1.5 0-3Z" fill="currentColor" fill-opacity=".25"/>
+    <path d="M157 12q-6 4-6 10" stroke-width="1.5"/>
+    <path d="m156 58 5 6 5-7"/>
+    <!-- The arm emerges from the middle of the sleeve and meets the lowered hand. -->
+    <path d="M158.5 61Q151 68 140.6 64.9"/>
+    <!-- Bring the lowered gun and gripping hand closer to the body. -->
+    <g transform="translate(2 0) rotate(-35 137 66)">
+    <path d="M123 51h15q5 0 5 5v3h-8l3 8h-6l-5-8h-4q-4 0-4-4t4-4Z" fill="currentColor" fill-opacity=".35"/>
+    <path d="M119 52h-6v6h6"/>
+    <!-- The wing ends in a hand clasping the angled grip. -->
+    <path d="M139 64q-1-2-3-1l-4 1q-2 1 0 3l4 2q3 0 3-3Z" fill="var(--color-background, #222)"/>
+    </g>
+    </g>
+  </g>
+  <!-- A few accent sparks suggest the fight has just ended. -->
+  <g stroke="var(--color-pink, #e6a4d5)" stroke-width="2" stroke-linecap="round">
+    <path d="m58 35 3-4m4 12 5-1m-56-7-3-3"/>
+  </g>
+</svg>

@@ -1,8 +1,8 @@
 <svg class="site-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="-2 0 208 80" fill="none" aria-hidden="true" focusable="false">
   <!-- A grumpy alien slime faces a space-adventurer duck. -->
   <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Move the body outward while keeping the gun and hand fixed. -->
-    <g transform="translate(-6 0)">
+    <!-- Align the slime with the duck’s feet while keeping the gun and hand fixed. -->
+    <g transform="translate(-6 4.395)">
     <!-- Simple Bulovan-inspired cyclops silhouette. -->
     <path d="M10 60c5-8 0-20 7-31 6-11 23-14 32-3 9 10 3 23 12 35 8 12-8 13-15 8-7 7-15 2-19 0-13 6-25 0-17-9Z" fill="currentColor" fill-opacity=".2"/>
     <path d="M31.5 19.2Q27 13 32 8" stroke-linecap="butt"/>
@@ -12,12 +12,25 @@
     <path d="M26 52q8-6 17-1"/>
     </g>
     <!-- Slime's ray gun and extended squishy arm. -->
-    <path d="M43 57q9 7 18-2"/>
+    <path d="M43 61.395Q52 66.2 61.5 55.9"/>
+    <!-- The slime fires at the duck's fading previous position. -->
+    <g transform="rotate(-18 64 54)">
     <path d="M59 39h17q5 0 5 5t-5 5h-8l-2 9h-6l3-10h-4z" fill="currentColor" fill-opacity=".35"/>
     <path d="M80.3 41H85v6h-4.7" stroke-linecap="butt"/>
     <path d="M65 39v-4h8v4"/>
     <!-- Fingers wrap around the grip, in front of the gun. -->
     <path d="M60 52q1-2 3-1l4 1q2 1 0 3l-4 2q-3 0-3-3Z" fill="var(--color-background, #222)"/>
+    </g>
+    <!-- A fading afterimage marks where the duck was before dodging down and right. -->
+    <g transform="translate(-20 -10)" opacity=".24" stroke-width="1.5" stroke-dasharray="3 3">
+      <path d="M142 25c-4 9-3 20 7 28 11 9 28-1 26-17q-1-7-5-11"/>
+      <path d="M139.5 37C137 38 132 40 126 40c-4 0-5 3-2 5 6 4 18 5 25 1"/>
+      <path d="M142 20C143 14 149 11 157 11C165 11 171 17 169 23H132q-7-1.5 0-3Z"/>
+    </g>
+    <!-- Short motion streaks connect the old position to the duck's current one. -->
+    <g opacity=".5" stroke-width="1.5">
+      <path d="M149 29l7 3M151 35l7 3M148 42l7 2"/>
+    </g>
     <g transform="translate(16 0)">
     <!-- Duck in profile: clean cap, broad bill and a dark pupil. -->
     <path d="M150 55q14-5 22 4 5 5 6 12h-33q-1-10 5-16Z" fill="currentColor" fill-opacity=".2"/>
@@ -46,9 +59,9 @@
   </g>
   <!-- Laser bolts use the navbar accent, with a translucent halo and white core. -->
   <g stroke-linecap="round" style="color: var(--color-pink, #e6a4d5)">
-    <path d="M92 44h18m1 11h-9" stroke="currentColor" stroke-width="8" opacity=".18"/>
-    <path d="M92 44h18m1 11h-9" stroke="currentColor" stroke-width="3"/>
-    <path d="M94 44h14m1 11h-5" stroke="#fff" stroke-width="1"/>
-    <path d="m111 34 3-5m5 9 5-1m-23 27-2 4" stroke="currentColor" stroke-width="2"/>
+    <path d="M96 33l23-7.5m16-5.2 10-3.2M114 55h-13M91 55h-6" stroke="currentColor" stroke-width="8" opacity=".18"/>
+    <path d="M96 33l23-7.5m16-5.2 10-3.2M114 55h-13M91 55h-6" stroke="currentColor" stroke-width="3"/>
+    <path d="M98 32.35l19-6.2m20-6.5 6-1.95M112 55h-9M89 55h-2" stroke="#fff" stroke-width="1"/>
+    <path d="M121 18l1-4M128 31l5 1M97 64l-2 4M93 45l-3-3M115 65l4 2" stroke="currentColor" stroke-width="2"/>
   </g>
 </svg>

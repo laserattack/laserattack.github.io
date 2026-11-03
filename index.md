@@ -14,7 +14,7 @@ technical topics
 The site's design is inspired by [Xah Lee's website](http://xahlee.info/) and was implemented
 with the help of `ChatGPT`, an AI model by `OpenAI`
 
-The site's emblem is inspired by *DuckTales* (1987), season 1, episode 8:
+The site's emblems are inspired by *DuckTales* (1987), season 1, episode 8:
 “Where No Duck Has Gone Before”. A visit to a sci-fi TV set sends Launchpad
 and the kids into real outer space, where they encounter the slimy alien
 overlord Bulovan
