@@ -5,13 +5,17 @@ permalink: /categories/
 
 <section>
   <ul class="entry-list">
-    {% for category in site.categories %}
+    {% for count in (1..site.posts.size) reversed %}
+      {% for category in site.categories %}
+        {% if category[1].size == count %}
       <li>
         <span class="entry-meta">{{ category[1].size }} posts</span>
         <h2>
           <a href="/categories/{{ category[0] }}/">{{ category[0] }}</a>
         </h2>
       </li>
+        {% endif %}
+      {% endfor %}
     {% endfor %}
   </ul>
 </section>
