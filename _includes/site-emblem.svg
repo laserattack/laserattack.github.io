@@ -12,29 +12,21 @@
     <path d="M26 52q8-6 17-1"/>
     </g>
     <!-- Slime's ray gun and extended squishy arm. -->
-    <path d="M43 61.395Q52 66.2 61.5 55.9"/>
-    <!-- The slime fires at the duck's fading previous position. -->
-    <g transform="rotate(-18 64 54)">
+    <path d="M43 61.395Q52 66.2 61 55"/>
+    <!-- The slime holds its malfunctioning gun level. -->
+    <g>
     <path d="M59 39h17q5 0 5 5t-5 5h-8l-2 9h-6l3-10h-4z" fill="currentColor" fill-opacity=".35"/>
     <path d="M80.3 41H85v6h-4.7" stroke-linecap="butt"/>
     <path d="M65 39v-4h8v4"/>
     <!-- Fingers wrap around the grip, in front of the gun. -->
     <path d="M60 52q1-2 3-1l4 1q2 1 0 3l-4 2q-3 0-3-3Z" fill="var(--color-background, #222)"/>
     </g>
-    <!-- A fading afterimage marks where the duck was before dodging down and right. -->
-    <g transform="translate(-20 -10)" opacity=".24" stroke-width="1.5" stroke-dasharray="3 3">
-      <path d="M142 25c-4 9-3 20 7 28 11 9 28-1 26-17q-1-7-5-11"/>
-      <path d="M139.5 37C137 38 132 40 126 40c-4 0-5 3-2 5 6 4 18 5 25 1"/>
-      <path d="M142 20C143 14 149 11 157 11C165 11 171 17 169 23H132q-7-1.5 0-3Z"/>
-    </g>
-    <!-- Short motion streaks connect the old position to the duck's current one. -->
-    <g opacity=".5" stroke-width="1.5">
-      <path d="M149 29l7 3M151 35l7 3M148 42l7 2"/>
-    </g>
     <g transform="translate(16 0)">
-    <!-- Duck in profile: clean cap, broad bill and a dark pupil. -->
+    <!-- The duck stands upright and fires at the slime. -->
     <path d="M150 55q14-5 22 4 5 5 6 12h-33q-1-10 5-16Z" fill="currentColor" fill-opacity=".2"/>
     <path d="m150 71-5 6h14l3-6m8 0 2 6h13l-8-6"/>
+    <!-- Head and cap retain their original upright proportions. -->
+    <g>
     <path d="M149 21c-8 4-10 13-8 21 1 10 8 15 17 15 13 0 19-10 17-22-1-10-12-18-26-14Z" fill="var(--color-background, #222)" stroke="none"/>
     <path d="M149 21c-8 4-10 13-8 21 1 10 8 15 17 15 13 0 19-10 17-22-1-10-12-18-26-14Z" fill="currentColor" fill-opacity=".2"/>
     <path d="M139.5 37C137 38 132 40 126 40c-4 0-5 3-2 5 6 4 18 5 25 1" fill="currentColor" fill-opacity=".2" stroke-linecap="butt"/>
@@ -45,6 +37,7 @@
     <path d="M142 20C143 14 149 11 157 11C165 11 171 17 169 23H132q-7-1.5 0-3Z" fill="var(--color-background, #222)" stroke="none"/>
     <path d="M142 20C143 14 149 11 157 11C165 11 171 17 169 23H132q-7-1.5 0-3Z" fill="currentColor" fill-opacity=".25"/>
     <path d="M157 12q-6 4-6 10" stroke-width="1.5"/>
+    </g>
     <path d="m156 58 5 6 5-7"/>
     <!-- The arm emerges from the middle of the sleeve and meets the lowered hand. -->
     <path d="M158.5 61Q147 69 131 66"/>
@@ -57,11 +50,16 @@
     </g>
     </g>
   </g>
+  <!-- A small wisp of smoke replaces the slime's laser: its gun has jammed. -->
+  <g stroke="var(--color-muted, #bdbdbd)" stroke-width="1.7" stroke-linecap="round" opacity=".7">
+    <path d="M88 43c7-2-2-7 4-10s-1-6 2-9"/>
+    <path d="M93 44c5-2 0-5 4-7" opacity=".55"/>
+  </g>
   <!-- Laser bolts use the navbar accent, with a translucent halo and white core. -->
   <g stroke-linecap="round" style="color: var(--color-pink, #e6a4d5)">
-    <path d="M96 33l23-7.5m16-5.2 10-3.2M114 55h-13M91 55h-6" stroke="currentColor" stroke-width="8" opacity=".18"/>
-    <path d="M96 33l23-7.5m16-5.2 10-3.2M114 55h-13M91 55h-6" stroke="currentColor" stroke-width="3"/>
-    <path d="M98 32.35l19-6.2m20-6.5 6-1.95M112 55h-9M89 55h-2" stroke="#fff" stroke-width="1"/>
-    <path d="M121 18l1-4M128 31l5 1M97 64l-2 4M93 45l-3-3M115 65l4 2" stroke="currentColor" stroke-width="2"/>
+    <path d="M114 55h-13M91 55h-6" stroke="currentColor" stroke-width="8" opacity=".18"/>
+    <path d="M114 55h-13M91 55h-6" stroke="currentColor" stroke-width="3"/>
+    <path d="M112 55h-9M89 55h-2" stroke="#fff" stroke-width="1"/>
+    <path d="M97 64l-2 4M107 45l-3-3M115 65l4 2" stroke="currentColor" stroke-width="2"/>
   </g>
 </svg>
