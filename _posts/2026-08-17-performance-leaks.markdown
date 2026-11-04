@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Нахождение утечек и узких мест в производительности программ
-category: it
+categories: [it, programming]
 ---
 
 # time
