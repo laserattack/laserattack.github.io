@@ -4,7 +4,7 @@ title: Linux file permissions explainer
 categories: [it, linux, tools]
 ---
 
-> AI rewrote my [rights Perl script](https://github.com/laserattack/rights) in JavaScript.
+> AI rewrote my [Perl script](https://github.com/laserattack/rights) in JavaScript.
 
 A browser version of my Perl script for explaining file permissions.
 Convert numeric permissions to symbolic notation and back, inspect the
