@@ -366,3 +366,22 @@ th { background: var(--color-inline-code-background); }
   pre, code { font-size: 0.85rem; }
   blockquote { margin-inline: var(--space-small); }
 }
+
+/* File permissions explainer. */
+#permissions-input {
+  box-sizing: border-box;
+  width: 22ch;
+  max-width: 100%;
+  padding: 4px 7px;
+  border: 2px solid var(--color-border);
+  border-radius: 0;
+  background: var(--color-control-background);
+  color: var(--color-text);
+  font: inherit;
+  font-family: var(--font-code);
+}
+#permissions-input:focus { border-color: var(--color-link-hover); outline: none; }
+#permissions-error { color: var(--color-red); }
+#permissions-error:empty { display: none; }
+#permissions-result dt { margin-top: var(--space-medium); font-weight: bold; }
+#permissions-result dd { margin: var(--space-small) 0 0; }
