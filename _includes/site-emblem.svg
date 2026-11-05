@@ -38,7 +38,7 @@
     <path d="M142 20C143 14 149 11 157 11C165 11 171 17 169 23H132q-7-1.5 0-3Z" fill="#b45e78"/>
     <path d="M157 12q-6 4-6 10" stroke-width="1.5" stroke="#7f425e"/>
     </g>
-    <path d="m156 58 5 6 5-7" fill="#ded8eb"/>
+    <path d="m156 58 5 6 5-7" fill="#b45e78"/>
     <!-- The arm emerges from the middle of the sleeve and meets the lowered hand. -->
     <path d="M156.9 62.05Q146.3 68.9 131 66" stroke="#ded8eb" stroke-linecap="butt"/>
     <!-- Counter the body shift so the gun and hand stay in place. -->
