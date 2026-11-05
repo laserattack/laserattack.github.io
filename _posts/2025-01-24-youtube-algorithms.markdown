@@ -14,4 +14,4 @@ categories: thoughts
 >
 > В мире много замечательных фильмов, аниме, музыкальных альбомов, которые достойны вашего внимания больше, чем кривляния очередного блогера-недоучки
 
-— источник: [@hyperflint@mastodon.ml](https://mastodon.ml/@hyperflint/113885001947849878)
+— [@hyperflint@mastodon.ml](https://mastodon.ml/@hyperflint/113885001947849878)
