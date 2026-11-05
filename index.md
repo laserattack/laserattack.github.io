@@ -5,11 +5,9 @@ permalink: /
 
 <h1>about this site</h1>
 
-I often write notes for myself and keep them locally. Some of them,
-which I find particularly useful or worth sharing, end up on this
-site. These notes can be about pretty much anything, but most of them
-are related to _IT_, _programming_, _technology_, and other
-technical topics
+Sometimes I post notes I originally wrote for myself. Other times I write
+something here on a whim, or share a quote or a piece of writing I came
+across and liked
 
 The site's design is inspired by [Xah Lee's website](http://xahlee.info/) and was implemented
 with the help of `ChatGPT`, an AI model by `OpenAI`
