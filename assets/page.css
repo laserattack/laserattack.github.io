@@ -115,7 +115,7 @@ header {
 .site-symbol {
   display: inline-block;
   width: auto;
-  height: 2.2em;
+  height: 2.8em;
   vertical-align: -0.45em;
 }
 .site-name, .site-name:visited { color: var(--color-link); }
@@ -350,6 +350,7 @@ th { background: var(--color-inline-code-background); }
 }
 
 @media (max-width: 768px) {
+  .site-symbol { height: 2.2em; }
   body { margin: var(--space-medium) var(--space-medium) var(--space-large); }
   nav {
     position: static;
