@@ -7,7 +7,7 @@ permalink: /
 
 Sometimes I post notes I originally wrote for myself. Other times I write
 something here on a whim, or share a quote or a piece of writing I came
-across and liked.
+across and liked
 
 The site's design is inspired by [Xah Lee's website](http://xahlee.info/) and was implemented
 with the help of `ChatGPT`, an AI model by `OpenAI`
