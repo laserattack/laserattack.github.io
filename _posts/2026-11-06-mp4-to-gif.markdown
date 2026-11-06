@@ -1,0 +1,12 @@
+---
+layout: post
+title: Сделать гифку из MP4
+categories: [it]
+---
+
+Чтобы сделать зацикленную гифку из `vid_fast.mp4` с частотой 15 кадров
+в секунду и шириной 640 пикселей, использую FFmpeg.
+
+```sh
+ffmpeg -i vid_fast.mp4 -vf "fps=15,scale=640:-1:flags=lanczos,format=rgb24,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 output.gif
+```
