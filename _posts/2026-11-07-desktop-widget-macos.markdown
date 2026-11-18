@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Свои виджеты на рабочий стол macOS
-categories: [it, macos]
+categories: [it, macos, programming]
 ---
 
 # ubersicht
