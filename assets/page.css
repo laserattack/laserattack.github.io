@@ -151,6 +151,20 @@ img { max-width: 100%; height: auto; margin: var(--space-small) 0 var(--space-me
 .post-navigation { margin: var(--space-section) 0; padding: var(--space-medium); border: 1px solid var(--color-border); }
 .post-navigation > :first-child { margin-top: 0; }
 .post-navigation > :last-child { margin-bottom: 0; }
+.post-navigation .current-post a,
+.post-navigation .current-post a:hover {
+  padding: 1px 4px;
+  color: var(--color-background);
+  background: var(--color-pink);
+  text-shadow: none;
+  text-decoration: none;
+  box-shadow:
+    0 0 6px var(--color-pink),
+    0 0 16px var(--color-pink),
+    0 0 28px color-mix(in srgb, var(--color-pink) 85%, transparent);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
 blockquote { margin: 1em var(--space-large); padding-left: var(--space-medium); border-left: 3px solid var(--color-border); }
 
 pre, code { font-family: var(--font-code); font-size: var(--code-size); }

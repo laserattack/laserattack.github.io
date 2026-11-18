@@ -43,38 +43,22 @@
 
           <div class="post-navigation">
             <p>Category: <a href="/categories/{{ category | slugify }}/">{{ category }}</a></p>
+            <p class="entry-meta">Newest to oldest (top to bottom)</p>
 
-            {% assign older_start = current_index | plus: 1 %}
-            {% assign older_end = current_index | plus: 5 %}
+            {% assign last_index = posts.size | minus: 1 %}
+            {% assign window_start = current_index | minus: 5 | at_least: 0 %}
+            {% assign window_end = current_index | plus: 5 | at_most: last_index %}
 
-            {% if older_start < posts.size %}
-              <p>Previous:</p>
-              <ul>
-                {% for i in (older_start..older_end) %}
-                  {% assign older = posts[i] %}
-                  {% if older %}
-                    <li><a href="{{ older.url | remove: '/index.html' | relative_url }}">{{ older.title }}</a></li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            {% endif %}
-
-            {% assign newer_start = current_index | minus: 5 %}
-            {% assign newer_end = current_index | minus: 1 %}
-
-            {% if newer_end >= 0 %}
-              <p>Next:</p>
-              <ul>
-                {% for i in (newer_start..newer_end) %}
-                  {% if i >= 0 %}
-                    {% assign newer = posts[i] %}
-                    {% if newer %}
-                      <li><a href="{{ newer.url | remove: '/index.html' | relative_url }}">{{ newer.title }}</a></li>
-                    {% endif %}
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            {% endif %}
+            <ul>
+              {% for i in (window_start..window_end) %}
+                {% assign neighbor = posts[i] %}
+                {% if i == current_index %}
+                  <li class="current-post"><a href="{{ neighbor.url | remove: '/index.html' | relative_url }}" aria-current="page">{{ neighbor.title }}</a></li>
+                {% else %}
+                  <li><a href="{{ neighbor.url | remove: '/index.html' | relative_url }}">{{ neighbor.title }}</a></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
           </div>
 
           {% break %}
