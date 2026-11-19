@@ -163,10 +163,6 @@ img { max-width: 100%; height: auto; margin: var(--space-small) 0 var(--space-me
   background: var(--color-pink);
   text-shadow: none;
   text-decoration: none;
-  box-shadow:
-    0 0 6px var(--color-pink),
-    0 0 16px var(--color-pink),
-    0 0 28px color-mix(in srgb, var(--color-pink) 85%, transparent);
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
