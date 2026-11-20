@@ -1,0 +1,107 @@
+/* Loaded only by the Clerks post through custom_css. */
+:root {
+  color-scheme: dark;
+  --color-background: #141414;
+  --color-text: #ededed;
+  --color-link: #fff;
+  --color-link-hover: #111;
+  --color-link-hover-background: #eee;
+  --color-muted: #bdbdbd;
+  --color-border: #777;
+  --color-pink: #eee;
+  --color-control-background: #111;
+  --font-family: "Courier New", Courier, monospace;
+}
+
+html {
+  background-image: repeating-linear-gradient(0deg, transparent 0 3px, #ffffff03 3px 4px);
+}
+body { line-height: 1.75; }
+.site-signature img.site-symbol { margin: 0; }
+a, a:visited {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+.site-sidebar a, .site-signature .site-name { text-decoration: none; }
+.site-signature .site-name:hover,
+.site-signature .site-name:focus-visible {
+  background: var(--color-link-hover-background);
+  text-decoration: none;
+}
+.site-signature .site-name:hover img.site-symbol,
+.site-signature .site-name:focus-visible img.site-symbol {
+  filter: invert(1);
+}
+.site-sidebar nav { border: 1px solid #888; }
+.site-sidebar a { font-size: 1rem; }
+.clerks-storefront { max-width: 58rem; margin: 1.5rem auto 2rem; border: 2px solid #ddd; background: #080808; }
+.clerks-store-sign {
+  padding: 0.7rem 1rem;
+  background: #e8e8e8;
+  color: #151515;
+  text-align: center;
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: clamp(2rem, 7vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  border-bottom: 7px solid #111;
+}
+.clerks-store-sign span { display: block; margin-top: 0.4rem; font: bold 0.875rem/1.5 "Courier New", monospace; letter-spacing: 0.45em; }
+.clerks-shutter {
+  padding: 1.5rem 1rem 2.5rem;
+  text-align: center;
+  background: repeating-linear-gradient(#242424 0 13px, #111 13px 15px, #363636 15px 16px);
+}
+.clerks-film-label { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; }
+.clerks-wordmark { display: flex; justify-content: center; gap: clamp(3px, 1vw, 10px); padding: 1.2rem 0 2rem; }
+.clerks-wordmark span {
+  display: inline-block;
+  padding: 0.03em 0.1em;
+  color: #111;
+  background: #eee;
+  font: 900 clamp(2rem, 7.5vw, 6rem)/1.1 Impact, "Arial Black", sans-serif;
+  box-shadow: 3px 4px 0 #000;
+  transform: rotate(-4deg);
+}
+.clerks-wordmark span:nth-child(even) { transform: rotate(3deg) translateY(5px); background: #bcbcbc; }
+.clerks-open {
+  display: inline-block;
+  margin: 0.6rem 0 0;
+  padding: 0.65rem 1.4rem;
+  background: #eee;
+  color: #161616;
+  font: 900 clamp(1.2rem, 3.6vw, 2.1rem)/1.1 "Courier New", monospace;
+  transform: rotate(-5deg);
+  border: 1px solid #aaa;
+  box-shadow: 5px 5px 0 #0008;
+}
+.clerks-caption { margin: 0; padding: 0.75rem 1rem; border-top: 1px solid #888; font-size: 0.875rem; text-align: center; }
+.clerks-lead { font-size: 1.3rem; line-height: 1.6; }
+.clerks-receipt {
+  width: 31rem;
+  max-width: 100%;
+  margin: 2.5rem auto;
+  padding: 2rem clamp(1rem, 4vw, 2.5rem);
+  background: #e8e8e8;
+  color: #222;
+  box-shadow: 7px 8px 0 #000;
+  border-bottom: 6px dashed #141414;
+}
+.clerks-receipt h1 { margin: 0; color: #111; text-align: center; letter-spacing: 0.06em; }
+.clerks-receipt-subtitle { text-align: center; padding-bottom: 1rem; border-bottom: 2px dashed #777; font-size: 0.875rem; }
+.clerks-receipt dl { margin: 0; }
+.clerks-receipt dl > div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.5rem 0; }
+.clerks-receipt dt { flex: 1; }
+.clerks-receipt dd { flex: 1; margin: 0; text-align: right; }
+.clerks-total { margin-top: 1rem; border-top: 2px dashed #777; font-weight: bold; }
+.clerks-receipt-end { margin-bottom: 0; text-align: center; font-size: 0.875rem; }
+::selection { color: #111; background: #fff; }
+@media (max-width: 768px) {
+  body { line-height: 1.65; }
+  .clerks-shutter { padding-inline: 0.5rem; }
+  .clerks-receipt dl > div { flex-wrap: wrap; }
+  .clerks-receipt dt, .clerks-receipt dd { flex-basis: 100%; text-align: left; }
+  .clerks-receipt dl > div { gap: 0.2rem; }
+}

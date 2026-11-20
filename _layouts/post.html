@@ -9,6 +9,9 @@
     <meta name="viewport"    content="width=device-width, initial-scale=1">
     <link rel="icon"         href="/assets/favicon-l.png?v={{ site.time | date: '%s' }}">
     <link rel="stylesheet"   type="text/css" href="/assets/page.css?v={{ site.time | date: '%s' }}">
+    {% if page.custom_css %}
+    <link rel="stylesheet" type="text/css" href="{{ page.custom_css | relative_url }}?v={{ site.time | date: '%s' }}">
+    {% endif %}
     <script src="/assets/js/count.js" async
             data-goatcounter="https://laserattack.goatcounter.com/count"></script>
     <script src="/assets/js/code.js?v={{ site.time | date: '%s' }}" defer></script>
@@ -30,7 +33,7 @@
     </div>
     <header>
       <div class="site-signature">
-        <a class="site-name" href="/" aria-label="На главную">{% include site-emblem.svg %}</a>
+        <a class="site-name" href="/" aria-label="На главную">{% if page.custom_emblem %}<img class="site-symbol" src="{{ page.custom_emblem | relative_url | escape }}" alt="">{% else %}{% include site-emblem.svg %}{% endif %}</a>
         <span class="site-tagline">laserattack</span>
       </div>
     </header>
@@ -78,7 +81,7 @@
       {% endif %}
       <p>Posted on {{ page.date | date_to_long_string: "ordinal" }}</p>
       <div class="site-signature">
-        <a class="site-name" href="/" aria-label="На главную">{% include site-emblem-victory.svg %}</a>
+        <a class="site-name" href="/" aria-label="На главную">{% if page.custom_emblem %}<img class="site-symbol" src="{{ page.custom_emblem | relative_url | escape }}" alt="">{% else %}{% include site-emblem-victory.svg %}{% endif %}</a>
         <span class="site-tagline">laserattack</span>
       </div>
     </footer>

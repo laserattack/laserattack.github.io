@@ -1,0 +1,26 @@
+<svg class="site-symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 80" fill="none" aria-hidden="true" focusable="false">
+  <!-- Dante Hicks and Randal Graves: monochrome, hand-cut portrait silhouettes. -->
+  <g stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Dante: dark centre-parted hair, heavy brows and a short beard. -->
+    <path d="M10 78 17 65 39 57h29l21 10 8 11" fill="#111"/>
+    <path d="m41 52-1 11 13 11 15-12-3-12" fill="#fff" stroke="#111"/>
+    <path d="M27 32c-7-22 4-29 24-29 23-2 33 11 28 32l-5 24-11 7-25-5-10-16Z" fill="#111"/>
+    <path d="M34 23q8-2 19-12 5 9 17 12l1 22-7 13-11 6-13-7-7-16Z" fill="#fff" stroke="#111"/>
+    <path d="m34 27 12-3 2 4-13 2Zm23-3 12 3-1 3-12-2Z" fill="#111" stroke="none"/>
+    <path d="m37 33 9-1m13 0 7 1m-14-2-3 12 7 1" stroke="#111"/>
+    <path d="M35 43q5 8 9 5l9-2 9 3 7-6-4 13-12 7-12-7Z" fill="#111" stroke="none"/>
+    <path d="m47 51 11 1m-10 4 9 1" stroke="#fff" stroke-width="1"/>
+    <path d="m26 62 9 15m37-15-9 15M18 70l11 3m48-3 9 4"/>
+    <!-- Randal: backwards baseball cap, long face and a crooked half-smile. -->
+    <path d="m112 78 9-13 23-9h24l22 10 9 12" fill="#111"/>
+    <path d="m146 48-2 14 11 9 14-10-4-14" fill="#fff" stroke="#111"/>
+    <path d="m134 25 2 19 7 13 14 5 12-9 7-24-19-14Z" fill="#fff" stroke="#111"/>
+    <path d="m134 29-5-1 2 13 6 3m38-14 5-1-3 13-4 2" fill="#fff" stroke="#111"/>
+    <path d="m136 30 11-3m13 0 11 4m-32 3 8-1m15 0 7 2m-14-4-3 12 6 1m-13 6q10 5 18-2m-13 8 8-1" stroke="#111"/>
+    <path d="M131 25q-5-19 18-22 22-3 29 14l-3 13-12-8-28 5Z" fill="#111"/>
+    <path d="M132 23q22-11 44-1l-1 7q-20-10-41 0Z" fill="#fff" stroke="#111"/>
+    <path d="m176 22 14 3-1 6-15-3" fill="#111"/>
+    <path d="M153 5q11 3 13 13" stroke="#fff" stroke-width="1"/>
+    <path d="m130 64 14 10h24l11-10m-43 14-9-8m48 8 9-8"/>
+  </g>
+</svg>
