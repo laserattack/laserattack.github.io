@@ -33,7 +33,7 @@
     </div>
     <header>
       <div class="site-signature">
-        <a class="site-name" href="/" aria-label="На главную">{% if page.custom_emblem %}<img class="site-symbol" src="{{ page.custom_emblem | relative_url | escape }}" alt="">{% else %}{% include site-emblem.svg %}{% endif %}</a>
+        <a class="site-name" href="/" aria-label="Home">{% if page.custom_emblem %}<img class="site-symbol" src="{{ page.custom_emblem | relative_url | escape }}" alt="">{% else %}{% include site-emblem.svg %}{% endif %}</a>
         <span class="site-tagline">laserattack</span>
       </div>
     </header>
@@ -84,7 +84,7 @@
       {% endif %}
       <p>Posted on {{ page.date | date_to_long_string: "ordinal" }}</p>
       <div class="site-signature">
-        <a class="site-name" href="/" aria-label="На главную">{% if page.custom_emblem %}<img class="site-symbol" src="{{ page.custom_emblem | relative_url | escape }}" alt="">{% else %}{% include site-emblem-victory.svg %}{% endif %}</a>
+        <a class="site-name" href="/" aria-label="Home">{% if page.custom_emblem %}<img class="site-symbol" src="{{ page.custom_emblem | relative_url | escape }}" alt="">{% else %}{% include site-emblem-victory.svg %}{% endif %}</a>
         <span class="site-tagline">laserattack</span>
       </div>
     </footer>
